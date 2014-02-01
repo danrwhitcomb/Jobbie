@@ -29,12 +29,14 @@
 
 //Controllers
 @property (nonatomic, strong) CenterViewController *centerViewController;
-@property (nonatomic, strong) LeftViewController * leftViewController;
+@property (nonatomic, strong) LeftViewController *leftViewController;
 
 //BOOLs and Magic Numbers
 @property (nonatomic, assign) BOOL showingLeftPanel;
 @property (nonatomic, assign) BOOL showPanel;
 @property (nonatomic, assign) CGPoint preVelocity;
+
+@property ControllerMethods* controllerMethods;
 
 @end
 
@@ -48,6 +50,7 @@
 {
     [super viewDidLoad];
     [self setupView];
+    _controllerMethods = [[ControllerMethods alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -196,7 +199,7 @@
 }
 
 
-/*
+/*setupGestures
  Initializes gesture controls for the view sliders
  */
 -(void)setupGestures
@@ -209,6 +212,10 @@
     [_centerViewController.view addGestureRecognizer:panRecognizer];
 }
 
+/*movePanel
+ Handles the gesture based movement for the
+ main view
+ */
 -(void)movePanel:(id)sender
 {
     [[[(UITapGestureRecognizer*)sender view] layer] removeAllAnimations];
@@ -231,12 +238,6 @@
     
     if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
         
-        if(velocity.x > 0) {
-            // NSLog(@"gesture went right");
-        } else {
-            // NSLog(@"gesture went left");
-        }
-        
         if (!_showPanel) {
             [self movePanelToOriginalPosition];
         } else {
@@ -247,25 +248,17 @@
     }
     
     if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateChanged) {
-        if(velocity.x > 0) {
-            // NSLog(@"gesture went right");
-        } else {
-            // NSLog(@"gesture went left");
-        }
         
         // Are you more than halfway? If so, show the panel when done dragging by setting this value to YES (1).
         _showPanel = abs([sender view].center.x - _centerViewController.view.frame.size.width/2) > _centerViewController.view.frame.size.width/2;
         
-        // Allow dragging only in x-coordinates by only updating the x-coordinate with translation position.
-        [sender view].center = CGPointMake([sender view].center.x + translatedPoint.x, [sender view].center.y);
-        [(UIPanGestureRecognizer*)sender setTranslation:CGPointMake(0,0) inView:self.view];
-        
-        // If you needed to check for a change in direction, you could use this code to do so.
-        if(velocity.x*_preVelocity.x + velocity.y*_preVelocity.y > 0) {
-            // NSLog(@"same direction");
-        } else {
-            // NSLog(@"opposite direction");
+        //Checks if the new center of the view will be greater than the center of the screen. If so, the view center is updated
+        //if not, nothing happens because the user should not be able to swipe the centerView to the left
+        CGPoint newPoint = CGPointMake([sender view].center.x + translatedPoint.x, [sender view].center.y);
+        if (newPoint.x > _centerViewController.view.frame.size.width/2){
+            [sender view].center = newPoint;
         }
+        [(UIPanGestureRecognizer*)sender setTranslation:CGPointMake(0,0) inView:self.view];
         
         _preVelocity = velocity;
     }

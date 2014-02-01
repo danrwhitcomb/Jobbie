@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Controllermethods.h"
 
 @interface SecondaryViewController : UIViewController
+
+@property ControllerMethods* controllerMethods;
 
 @end

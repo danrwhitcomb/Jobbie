@@ -9,19 +9,44 @@
 #import "CenterViewController.h"
 
 @interface CenterViewController ()
+
+
+
 @end
 
 @implementation CenterViewController
-
-@synthesize headerLabel = _headerLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _controllerMethods = [[ControllerMethods alloc] init];
     }
     return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self setupInterfaceElements];
+}
+
+- (void)setupInterfaceElements
+{
+    //Setup UIImageView attributes
+    CALayer *imageLayer = [_jobImage layer];
+    [imageLayer setMasksToBounds:YES];
+    [imageLayer setCornerRadius:_jobImage.frame.size.width/2];
+    [imageLayer setBorderWidth:4.0];
+    
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    [imageLayer setBorderColor:CGColorCreate(colorSpace, (CGFloat[]){38/255.0, 185/255.0, 154/255.0, 1.0})];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)btnMovePanelRight:(id)sender
@@ -40,28 +65,17 @@
             [_delegate movePanelRight];
             break;
         }
-        
+            
         default:
             break;
     }
 }
 
-- (void)viewDidLoad
+- (IBAction)toggleScrollViewPage:(id)sender
 {
-    [super viewDidLoad];
-    [self setupInterfaceElements];
-    
+    if(true){
+        NSLog(@"Hit info button");
+    }
+        
 }
-
-- (void)setupInterfaceElements
-{
-    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 @end

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "LeftViewController.h"
+#import "ControllerMethods.h"
+
 @protocol CenterViewControllerDelegate <NSObject>
 
 @optional
@@ -23,7 +25,12 @@
 
 //Buttons and Labels
 @property (nonatomic, weak) IBOutlet UIButton *leftButton;
-@property (strong, nonatomic) IBOutlet UILabel *headerLabel;
+
+//ImageView
+@property (nonatomic, strong) IBOutlet UIImageView *jobImage;
+
+@property ControllerMethods* controllerMethods;
+
 
 - (IBAction)btnMovePanelRight:(id)sender;
 

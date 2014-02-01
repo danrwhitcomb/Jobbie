@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _controllerMethods = [[ControllerMethods alloc] init];
     }
     return self;
 }
@@ -35,9 +35,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+//IBACTIONS!
+
+//General
 - (IBAction)returnToMainView:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+//Settings
+-(IBAction)logoutOfAccount:(id)sender
+{
+    UINavigationController* navController = self.navigationController;
+    [navController popToRootViewControllerAnimated:YES];
+}
+
+
 
 @end

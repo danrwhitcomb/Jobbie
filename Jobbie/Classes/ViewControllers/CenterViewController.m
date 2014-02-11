@@ -21,6 +21,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _controllerMethods = [[ControllerMethods alloc] init];
+        if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+            self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     return self;
 }
@@ -29,6 +31,22 @@
 {
     [super viewDidLoad];
     [self setupInterfaceElements];
+}
+
+-(void)loadView
+{
+    [super loadView];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    UINavigationController* nav = [self navigationController];
+    nav.navigationBarHidden = YES;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self setupNavigationBar];
 }
 
 - (void)setupInterfaceElements
@@ -42,6 +60,15 @@
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     [imageLayer setBorderColor:CGColorCreate(colorSpace, (CGFloat[]){38/255.0, 185/255.0, 154/255.0, 1.0})];
 }
+
+- (void)setupNavigationBar
+{
+    UINavigationController* nav = self.navigationController;
+    nav.navigationBarHidden = NO;
+    nav.navigationBar.translucent = NO;
+    nav.navigationBar.barTintColor = [UIColor colorWithRed:50/255.0 green:58/255.0 blue:69/255.0 alpha:1];
+}
+
 
 - (void)didReceiveMemoryWarning
 {

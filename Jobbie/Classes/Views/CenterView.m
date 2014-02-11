@@ -49,10 +49,6 @@
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     
     //Rect setups
-    self.headerRect = [[CustomRect alloc] initWithColor: CGColorCreate(colorSpace, (CGFloat[]){50/255.0, 58/255.0, 69/255.0, 1.0})
-                                                 stroke: CGColorCreate(colorSpace, (CGFloat[]){0.0, 0.0, 0.0, 1.0})
-                                                   rect: CGRectMake(0, 0, frameWidth, headerRectOffset)];
-    
     self.mainInfoRect = [[CustomRect alloc] initWithColor: CGColorCreate(colorSpace, (CGFloat[]){1.0, 1.0, 1.0, 1.0})
                                                    stroke: CGColorCreate(colorSpace, (CGFloat[]){0.0, 0.0, 0.0, 1.0})
                                                      rect: CGRectMake(baseObjectOffset, mainInfoRectYOffset, frameWidth - (baseObjectOffset * 2), frameHeight / 1.54)];

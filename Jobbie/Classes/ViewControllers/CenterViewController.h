@@ -24,7 +24,7 @@
 @property (nonatomic, assign) id<CenterViewControllerDelegate> delegate;
 
 //Buttons and Labels
-@property (nonatomic, weak) IBOutlet UIButton *leftButton;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *leftButton;
 
 //ImageView
 @property (nonatomic, strong) IBOutlet UIImageView *jobImage;

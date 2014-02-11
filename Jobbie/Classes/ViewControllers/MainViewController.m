@@ -30,6 +30,7 @@
 //Controllers
 @property (nonatomic, strong) CenterViewController *centerViewController;
 @property (nonatomic, strong) LeftViewController *leftViewController;
+@property (nonatomic, strong) UINavigationController* navController;
 
 //BOOLs and Magic Numbers
 @property (nonatomic, assign) BOOL showingLeftPanel;
@@ -65,17 +66,21 @@
  */
 - (void)setupView
 {
+    self.navController = [self.storyboard instantiateViewControllerWithIdentifier:@"NavCenterViewController"];
+    [self.view addSubview:self.navController.view];
+    [self addChildViewController:self.navController];
+    self.centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"];
+
+    [self.navController pushViewController:self.centerViewController animated:YES];
+
 
     //Retrieve from StoryBoard and tag
-    self.centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"];
     self.centerViewController.view.tag = CENTER_TAG;
+    self.navController.view.tag = CENTER_TAG;
     self.centerViewController.delegate = self;
     
     //Assign subivew for MainViewController
-    [self.view addSubview:self.centerViewController.view];
-    [self addChildViewController:_centerViewController];
-    
-    [_centerViewController didMoveToParentViewController:self];
+    [self.navController didMoveToParentViewController:self];
     
     [self setupGestures];
 }
@@ -172,7 +177,7 @@
     [self.view sendSubviewToBack:childView];
     
     [UIView animateWithDuration:SLIDE_TIMING delay:0 options:UIViewAnimationOptionBeginFromCurrentState
-                     animations:^{_centerViewController.view.frame = CGRectMake(self.view.frame.size.width - PANEL_WIDTH, 0, self.view.frame.size.width, self.view.frame.size.height);
+                     animations:^{_navController.view.frame = CGRectMake(self.view.frame.size.width - PANEL_WIDTH, 0, self.view.frame.size.width, self.view.frame.size.height);
                      } completion:^(BOOL finished) {
                          if (finished) {
                              _centerViewController.leftButton.tag = 0;
@@ -188,7 +193,7 @@
 {
     [UIView animateWithDuration:SLIDE_TIMING delay:0 options:UIViewAnimationOptionBeginFromCurrentState
                      animations:^{
-                         _centerViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+                         _navController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
                      }
                      completion:^(BOOL finished) {
                          if (finished) {

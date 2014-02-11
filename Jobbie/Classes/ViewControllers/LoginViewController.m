@@ -158,7 +158,7 @@
 
 -(BOOL)matchLoginCredentialsWithUsername:(NSString*)username andPassword:(NSString*)password
 {
-    return FALSE;
+    return YES;
 }
 
 -(void)displayLoginError

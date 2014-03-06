@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DataViewController : UIViewController
+@protocol DataViewControllerDelegate <NSObject>
+
+@optional
+-(void) animateToNextCard;
 
 @end
+
+
+@interface DataViewController : UIViewController
+@property (nonatomic, assign) id<DataViewControllerDelegate> delegate;
+@end
+
+

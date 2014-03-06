@@ -150,15 +150,15 @@
 {
     if(value)
     {
-        [_centerViewController.view.layer setCornerRadius:CORNER_RADIUS];
-        [_centerViewController.view.layer setShadowColor:[UIColor blackColor].CGColor];
-        [_centerViewController.view.layer setShadowOpacity:0.8];
-        [_centerViewController.view.layer setShadowOffset:CGSizeMake(offset, offset)];
+        [_navController.view.layer setCornerRadius:CORNER_RADIUS];
+        [_navController.view.layer setShadowColor:[UIColor blackColor].CGColor];
+        [_navController.view.layer setShadowOpacity:0.8];
+        [_navController.view.layer setShadowOffset:CGSizeMake(offset, offset)];
     }
     else
     {
-        [_centerViewController.view.layer setCornerRadius:0.0f];
-        [_centerViewController.view.layer setShadowOffset:CGSizeMake(offset, offset)];
+        [_navController.view.layer setCornerRadius:0.0f];
+        [_navController.view.layer setShadowOffset:CGSizeMake(offset, offset)];
     }
     
 }
@@ -214,7 +214,7 @@
     [panRecognizer setMaximumNumberOfTouches:1];
     [panRecognizer setDelegate:self];
     
-    [_centerViewController.view addGestureRecognizer:panRecognizer];
+    [_navController.view addGestureRecognizer:panRecognizer];
 }
 
 /*movePanel
@@ -255,12 +255,12 @@
     if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateChanged) {
         
         // Are you more than halfway? If so, show the panel when done dragging by setting this value to YES (1).
-        _showPanel = abs([sender view].center.x - _centerViewController.view.frame.size.width/2) > _centerViewController.view.frame.size.width/2;
+        _showPanel = abs([sender view].center.x - _navController.view.frame.size.width/2) > _navController.view.frame.size.width/2;
         
         //Checks if the new center of the view will be greater than the center of the screen. If so, the view center is updated
         //if not, nothing happens because the user should not be able to swipe the centerView to the left
         CGPoint newPoint = CGPointMake([sender view].center.x + translatedPoint.x, [sender view].center.y);
-        if (newPoint.x > _centerViewController.view.frame.size.width/2){
+        if (newPoint.x > _navController.view.frame.size.width/2){
             [sender view].center = newPoint;
         }
         [(UIPanGestureRecognizer*)sender setTranslation:CGPointMake(0,0) inView:self.view];

@@ -14,7 +14,7 @@
 #define MAIN_TAG 1
 #define DESCRIPT_TAG 2
 
-@interface DataViewController () <EmbedDataViewControllerDelegate>
+@interface DataViewController () <EmbedDataViewControllerDelegate, UIGestureRecognizerDelegate>
 @property (strong, nonatomic) NSString *currentSegueIdentifier;
 @property (nonatomic, strong) EmbedDataViewController* infoController;
 @property (nonatomic, strong) EmbedDataViewController* descriptController;
@@ -28,6 +28,7 @@
 {
     [super viewDidLoad];
     [self setupViews];
+    [self setupGestures];
     
     self.currentSegueIdentifier = SegueIdentifierFirst;
     //[self performSegueWithIdentifier:self.currentSegueIdentifier sender:nil];
@@ -35,7 +36,15 @@
 
 - (void) setupViews
 {
-    _infoController = [self.storyboard instantiateViewControllerWithIdentifier:@"embedFirst"];
+    
+    if(!self.view.tag){
+        _infoController = [self.storyboard instantiateViewControllerWithIdentifier:@"primCardMain"];
+        _descriptController = [self.storyboard instantiateViewControllerWithIdentifier:@"primCardDescript"];
+    } else {
+        _infoController = [self.storyboard instantiateViewControllerWithIdentifier:@"secCardMain"];
+        _descriptController = [self.storyboard instantiateViewControllerWithIdentifier:@"secCardDescript"];
+    }
+    
     [self.view addSubview: _infoController.view];
     [self addChildViewController:_infoController];
     
@@ -46,9 +55,26 @@
     [self.infoController didMoveToParentViewController:self];
     _currentController = _infoController;
     
-    _descriptController = [self.storyboard instantiateViewControllerWithIdentifier:@"embedSecond"];
+    
     _descriptController.delegate = self;
 }
+
+-(void) setupGestures
+{
+    UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(swipeToNextCard:)];
+    [panRecognizer setMinimumNumberOfTouches:1];
+    [panRecognizer setMaximumNumberOfTouches:1];
+    [panRecognizer setDelegate:self];
+    
+    [self.view addGestureRecognizer:panRecognizer];
+
+}
+
+-(void)swipeToNextCard:(UIGestureRecognizer*)gestureRecognizer
+{
+    [_delegate animateToNextCard: gestureRecognizer];
+}
+
 
 /*
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

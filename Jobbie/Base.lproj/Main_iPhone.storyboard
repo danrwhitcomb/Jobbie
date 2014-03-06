@@ -35,7 +35,7 @@
         <scene sceneID="88x-gx-KDu">
             <objects>
                 <viewController storyboardIdentifier="CenterViewController" title="CenterViewController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Xdr-Jy-mgF" customClass="CenterViewController" sceneMemberID="viewController">
-                    <view key="view" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="263" id="WOy-eY-JUJ" customClass="CenterView">
+                    <view key="view" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="263" id="WOy-eY-JUJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -62,25 +62,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView contentMode="scaleToFill" id="219-tv-Pd2">
-                                <rect key="frame" x="20" y="100" width="283" height="360.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <rect key="frame" x="15" y="76" width="290" height="376.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="66v-MV-pgj" kind="embed" id="p6Q-lP-l6K"/>
                                 </connections>
                             </containerView>
+                            <containerView contentMode="scaleToFill" id="12n-ol-48j">
+                                <rect key="frame" x="326" y="81.5" width="287" height="376.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="vks-Xd-pBF" kind="embed" id="9we-GC-fhj"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705882352937" green="0.92941176470588238" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
-                        <connections>
-                            <outlet property="companyLocationLabel" destination="eTL-ab-7u5" id="unA-lW-CfM"/>
-                            <outlet property="companyNameLabel" destination="lSe-mc-G7W" id="gko-JD-AXv"/>
-                            <outlet property="descriptLabel" destination="qsL-g3-fWD" id="2dx-aR-Oyb"/>
-                            <outlet property="jobImageView" destination="xcY-gS-kVo" id="yYg-ry-7aR"/>
-                            <outlet property="matchButton" destination="ngu-it-EfT" id="EKq-Db-XQO"/>
-                            <outlet property="matchStatLabel" destination="faW-8T-WdF" id="9Nv-Er-9S2"/>
-                            <outlet property="xButton" destination="Qh4-y4-6f8" id="d4J-Ld-A7Z"/>
-                            <outlet property="xStatLabel" destination="1JV-Nh-hBY" id="UTS-yI-egQ"/>
-                        </connections>
+                        <gestureRecognizers/>
                     </view>
                     <toolbarItems>
                         <barButtonItem tag="1" title="Item" image="drawerButton.png" style="plain" id="Ixm-tY-b5n">
@@ -96,7 +93,6 @@
                             <outlet property="titleView" destination="0MD-vZ-yxy" id="u6D-uz-ocT"/>
                         </connections>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="jobImage" destination="xcY-gS-kVo" id="5sQ-Qn-IUz"/>
                         <outlet property="leftButton" destination="Ixm-tY-b5n" id="iXi-Vz-yta"/>
@@ -109,30 +105,31 @@
         <!--Data View Controller-->
         <scene sceneID="4II-Pw-ssz">
             <objects>
-                <viewController id="66v-MV-pgj" customClass="DataViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xAN-fR-or0">
-                        <rect key="frame" x="0.0" y="0.0" width="283" height="360"/>
+                <viewController storyboardIdentifier="PrimDataController" id="66v-MV-pgj" customClass="DataViewController" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="xAN-fR-or0">
+                        <rect key="frame" x="0.0" y="0.0" width="290" height="374"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jen-mK-cgy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="696" y="914"/>
+            <point key="canvasLocation" x="1282" y="452"/>
         </scene>
         <!--Embed Data View Controller - Title-->
         <scene sceneID="KFd-4F-uDg">
             <objects>
-                <viewController storyboardIdentifier="embedSecond" autoresizesArchivedViewToFullSize="NO" modalTransitionStyle="flipHorizontal" id="lhR-Kp-3K2" customClass="EmbedDataViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iM9-jM-QZM" customClass="DescriptionView">
-                        <rect key="frame" x="0.0" y="0.0" width="283" height="360"/>
+                <viewController storyboardIdentifier="primCardDescript" autoresizesArchivedViewToFullSize="NO" modalTransitionStyle="flipHorizontal" id="lhR-Kp-3K2" customClass="EmbedDataViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iM9-jM-QZM">
+                        <rect key="frame" x="0.0" y="0.0" width="290" height="374"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="jV0-Pp-Air">
                                 <rect key="frame" x="3" y="64" width="280" height="281"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -164,7 +161,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Baq-HR-3la" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1060" y="1162"/>
+            <point key="canvasLocation" x="1646" y="700"/>
+        </scene>
+        <!--Data View Controller-->
+        <scene sceneID="rVs-uj-Qu3">
+            <objects>
+                <viewController storyboardIdentifier="SecDataController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vks-Xd-pBF" customClass="DataViewController" sceneMemberID="viewController">
+                    <view key="view" tag="1" contentMode="scaleToFill" id="G3F-EL-btD">
+                        <rect key="frame" x="0.0" y="0.0" width="290" height="374"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oiw-oI-7Jq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1282" y="1451"/>
         </scene>
         <!--Left View Controller - LeftViewController-->
         <scene sceneID="RHA-Ga-NOZ">
@@ -655,48 +667,48 @@
         <!--Embed Data View Controller-->
         <scene sceneID="kSi-ZB-kmu">
             <objects>
-                <viewController storyboardIdentifier="embedFirst" automaticallyAdjustsScrollViewInsets="NO" id="6Qt-tj-awz" customClass="EmbedDataViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="primCardMain" automaticallyAdjustsScrollViewInsets="NO" id="6Qt-tj-awz" customClass="EmbedDataViewController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="M2k-CX-6le">
-                        <rect key="frame" x="0.0" y="0.0" width="283" height="360"/>
+                        <rect key="frame" x="0.0" y="0.0" width="290" height="374"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google Inc." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lSe-mc-G7W">
-                                <rect key="frame" x="105" y="30" width="189" height="40"/>
+                                <rect key="frame" x="105" y="31.5" width="189" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Signika-Semibold" family="Signika" pointSize="23"/>
                                 <color key="textColor" red="0.1960784314" green="0.2274509804" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mountain View, CA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eTL-ab-7u5">
-                                <rect key="frame" x="106" y="63" width="189" height="33"/>
+                                <rect key="frame" x="106" y="66" width="189" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Signika-Light" family="Signika" pointSize="17"/>
                                 <color key="textColor" red="0.1960784314" green="0.2274509804" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,570" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="faW-8T-WdF">
-                                <rect key="frame" x="-13" y="138" width="101" height="60"/>
+                                <rect key="frame" x="-13" y="144.5" width="101" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Signika-Regular" family="Signika" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,570" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1JV-Nh-hBY">
-                                <rect key="frame" x="88" y="138" width="101" height="60"/>
+                                <rect key="frame" x="88" y="144.5" width="101" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Signika-Regular" family="Signika" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,570" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aDj-g2-EMu">
-                                <rect key="frame" x="187" y="138" width="101" height="60"/>
+                                <rect key="frame" x="187" y="144.5" width="101" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Signika-Regular" family="Signika" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="owA-iv-Ven">
-                                <rect key="frame" x="244" y="9" width="31" height="31"/>
+                                <rect key="frame" x="244" y="9.5" width="31" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Signika-Semibold" family="Signika" pointSize="15"/>
                                 <state key="normal" title="i" backgroundImage="infoButton.png">
@@ -708,11 +720,11 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="googleLogo.png" id="xcY-gS-kVo">
-                                <rect key="frame" x="0.0" y="14.5" width="95" height="95"/>
+                                <rect key="frame" x="0.0" y="15" width="95" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Description!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qsL-g3-fWD">
-                                <rect key="frame" x="12" y="214.5" width="252" height="139"/>
+                                <rect key="frame" x="12" y="228.5" width="252" height="139"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -720,6 +732,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.9960784912109375" green="0.9960784912109375" blue="0.99215692281723022" alpha="1" colorSpace="deviceRGB"/>
+                        <gestureRecognizers/>
                     </view>
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -729,7 +742,131 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iI9-Zv-fDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1060" y="678"/>
+            <point key="canvasLocation" x="1646" y="231"/>
+        </scene>
+        <!--Embed Data View Controller - Title-->
+        <scene sceneID="cqN-51-DzU">
+            <objects>
+                <viewController storyboardIdentifier="secCardDescript" autoresizesArchivedViewToFullSize="NO" modalTransitionStyle="flipHorizontal" id="MuZ-T2-InP" customClass="EmbedDataViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c1U-XM-I6N">
+                        <rect key="frame" x="0.0" y="0.0" width="290" height="374"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="bVS-Wi-M7g">
+                                <rect key="frame" x="3" y="64" width="280" height="281"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7yc-Ur-BYF">
+                                <rect key="frame" x="228" y="18" width="35" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="swapButtonPressed:" destination="MuZ-T2-InP" eventType="touchUpInside" id="BL0-Dp-Bcz"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UI/UX Designer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8PR-MU-uwv">
+                                <rect key="frame" x="15" y="22" width="135" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99607849120000003" green="0.99607849120000003" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="Ebv-wZ-6cc"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="backBtn" destination="7yc-Ur-BYF" id="Gd2-rZ-6nx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AcB-no-CHW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1646" y="1735"/>
+        </scene>
+        <!--Embed Data View Controller-->
+        <scene sceneID="OPP-Ju-stu">
+            <objects>
+                <viewController storyboardIdentifier="secCardMain" automaticallyAdjustsScrollViewInsets="NO" id="mGE-DN-dYQ" customClass="EmbedDataViewController" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pgP-at-M7D">
+                        <rect key="frame" x="0.0" y="0.0" width="290" height="374"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google Inc." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zwt-oJ-O96">
+                                <rect key="frame" x="105" y="31.5" width="189" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Signika-Semibold" family="Signika" pointSize="23"/>
+                                <color key="textColor" red="0.1960784314" green="0.2274509804" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mountain View, CA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bvW-LT-gsp">
+                                <rect key="frame" x="106" y="66" width="189" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Signika-Light" family="Signika" pointSize="17"/>
+                                <color key="textColor" red="0.1960784314" green="0.2274509804" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,570" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="adP-fo-FcB">
+                                <rect key="frame" x="-13" y="144.5" width="101" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Signika-Regular" family="Signika" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,570" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6yW-2z-fVF">
+                                <rect key="frame" x="88" y="144.5" width="101" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Signika-Regular" family="Signika" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,570" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gpB-G7-kkV">
+                                <rect key="frame" x="187" y="144.5" width="101" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Signika-Regular" family="Signika" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eZF-Ne-Xkj">
+                                <rect key="frame" x="244" y="9.5" width="31" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Signika-Semibold" family="Signika" pointSize="15"/>
+                                <state key="normal" title="i" backgroundImage="infoButton.png">
+                                    <color key="titleColor" red="0.1960784314" green="0.2274509804" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="swapButtonPressed:" destination="mGE-DN-dYQ" eventType="touchUpInside" id="G48-b5-o3x"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="googleLogo.png" id="MV3-CN-deA">
+                                <rect key="frame" x="0.0" y="15" width="95" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Description!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A1r-7J-gMJ">
+                                <rect key="frame" x="12" y="228.5" width="252" height="139"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99607849120000003" green="0.99607849120000003" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
+                    </view>
+                    <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="infoBtn" destination="eZF-Ne-Xkj" id="YoM-Pe-EaO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eER-0U-UoN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1646" y="1215"/>
         </scene>
     </scenes>
     <resources>

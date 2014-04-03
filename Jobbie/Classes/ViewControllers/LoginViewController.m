@@ -16,6 +16,7 @@
  */
 
 #import "LoginViewController.h"
+#import "AppDelegate.h"
 #define LOGIN_CRED_VALIDATE_ERROR 0
 #define LOGIN_CRED_MATCH_ERROR 1
 
@@ -30,6 +31,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         _controllerMethods = [[ControllerMethods alloc] init];
+        self.appDelegate = [[UIApplication sharedApplication] delegate];
     }
     return self;
 }
@@ -47,13 +49,14 @@
     
         //Make scroll view bigger so it can be scrolled up when the
         //text fields are selected
-        [_scrollView setContentOffset:CGPointZero];
+        //[_scrollView setContentOffset:CGPointZero];
         NSLog(@"Content Offset: %f, %f", _scrollView.contentOffset.x,  _scrollView.contentOffset.y);
 
     
         //Set the VC as delegate so it can implement UITextField methods
         [_userNameField setDelegate:self];
         [_passwordField setDelegate:self];
+        
     } else if([self.restorationIdentifier isEqual:@"NewAccountViewController"]){
         
     } else { //ForgotPasswordViewController
@@ -158,6 +161,7 @@
 
 -(BOOL)matchLoginCredentialsWithUsername:(NSString*)username andPassword:(NSString*)password
 {
+    //[self.messenger loginToServer];
     return YES;
 }
 

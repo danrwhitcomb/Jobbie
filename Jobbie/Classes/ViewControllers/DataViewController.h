@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CenterViewController.h"
 
 @protocol DataViewControllerDelegate <NSObject>
 
-@optional
--(void) animateToNextCard;
+@required
+-(void) animateToNextCard: (id) sender;
 
 @end
 

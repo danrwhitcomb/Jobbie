@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ControllerMethods.h"
+#import "Messenger.h"
+#import "Model.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController : UIViewController <UITextFieldDelegate>
 
@@ -20,5 +23,7 @@
 
 //Model Objects
 @property ControllerMethods* controllerMethods;
+
+@property AppDelegate* appDelegate;
 
 @end

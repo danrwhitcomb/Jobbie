@@ -7,16 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JobNode.h"
 
-@interface Model : NSObject
+@interface Model : NSObject <NSXMLParserDelegate>
 
-@property NSMutableArray* opportunityList;
-@property NSMutableArray* matchList;
-@property NSMutableArray* xList;
-
-/*
-@property UserSettings* userSettings;
-@property UserProfile* userProfile;
- */
+-(NSURL*)buildURL;
 
 @end

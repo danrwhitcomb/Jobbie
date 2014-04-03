@@ -7,21 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Messanger.h"
+#import "Classes/Network/Messenger.h"
 #import "Model.h"
+#import "AFNetworkActivityIndicatorManager.h"
 
 @class MainViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, MessengerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) MainViewController *viewController;
 @property (strong, nonatomic) Model* model;
 
+@property (strong, nonatomic) Messenger* messenger;
+
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator ;
 
+
+-(NSURLSessionDataTask*)handleGETRequestToPath:(NSString*)path toServer:(int)server;
 
 @end

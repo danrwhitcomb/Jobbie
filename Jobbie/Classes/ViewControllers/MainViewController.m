@@ -7,37 +7,63 @@
 //
 
 //Import Frameworks
-#import <QuartzCore/QuartzCore.h>
-#import <UIKit/UIKit.h>
 
-//Import ViewControllers
+
+//Import My files
 #import "MainViewController.h"
-#import "CenterViewController.h"
-#import "LeftViewController.h"
 
-//Quick tags for views
-#define CENTER_TAG 1
-#define LEFT_TAG 2
+
+//QuickTagsForViews
+#define CARD_ONE_TAG 1
+#define CARD_TWO_TAG 2
 
 //Magic Numbers
 #define CORNER_RADIUS 4
 #define SLIDE_TIMING .25
 #define PANEL_WIDTH 60
+#define NAV_BAR_HEIGHT 80
+
+//Move down values for shuffled controller
+#define MOVE_DOWN_X 3
+#define MOVE_DOWN_Y 3
+
+//Card border
+#define TOP_EDGE_OFFSET 90
+#define EDGE_OFFSET 10
 
 
-@interface MainViewController () <UIGestureRecognizerDelegate,CenterViewControllerDelegate>
+@interface MainViewController () <UIGestureRecognizerDelegate, CardOneViewControllerDelegate, CardTwoViewControllerDelegate, NavBarViewControllerDelegate>
 
 //Controllers
-@property (nonatomic, strong) CenterViewController *centerViewController;
-@property (nonatomic, strong) LeftViewController *leftViewController;
+@property (nonatomic, strong) CardOneViewController *cardOneController;
+@property (nonatomic, strong) CardTwoViewController *cardTwoController;
+@property (nonatomic, strong) NavBarViewController  *navBarController;
 @property (nonatomic, strong) UINavigationController* navController;
+@property (nonatomic, strong) SettingsViewController* settingsController;
+@property NSInteger currentCard;
+@property NSMutableArray* cardControllers;
 
 //BOOLs and Magic Numbers
-@property (nonatomic, assign) BOOL showingLeftPanel;
-@property (nonatomic, assign) BOOL showPanel;
 @property (nonatomic, assign) CGPoint preVelocity;
 
+//Locations of cards
+@property CGPoint waitingPoint;
+@property CGPoint viewingPoint;
+@property CGPoint rejectPoint;
+@property CGPoint matchPoint;
+
+//Animation Flags
+@property BOOL showingNewCard;
+
+//Buttons
+@property IBOutlet UIButton* btnShuffle;
+
+@property AFNetworkActivityIndicatorManager* networkActIndicator;
+
 @property ControllerMethods* controllerMethods;
+@property AppDelegate* appDelegate;
+
+@property IBOutlet UIActivityIndicatorView* actIndicator;
 
 @end
 
@@ -47,11 +73,29 @@
    |                    VIEW LOADERS                    |
    +----------------------------------------------------+
  */
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.controllerMethods = [[ControllerMethods alloc] init];
+        self.appDelegate = [[UIApplication sharedApplication] delegate];
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setupView];
     _controllerMethods = [[ControllerMethods alloc] init];
+    
+    self.waitingPoint = CGPointMake(EDGE_OFFSET - self.view.frame.size.width, NAV_BAR_HEIGHT + EDGE_OFFSET);
+    self.viewingPoint = CGPointMake(EDGE_OFFSET, NAV_BAR_HEIGHT + EDGE_OFFSET);
+    self.matchPoint   = CGPointMake(EDGE_OFFSET, 0 - self.view.frame.size.height + EDGE_OFFSET);
+    self.rejectPoint  = CGPointMake(EDGE_OFFSET, self.view.frame.size.height + EDGE_OFFSET);
+    [self.view bringSubviewToFront:self.btnShuffle];
+    self.currentCard = 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,75 +110,76 @@
  */
 - (void)setupView
 {
-    self.navController = [self.storyboard instantiateViewControllerWithIdentifier:@"NavCenterViewController"];
-    [self.view addSubview:self.navController.view];
-    [self addChildViewController:self.navController];
-    self.centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"];
-
-    [self.navController pushViewController:self.centerViewController animated:YES];
-
-
-    //Retrieve from StoryBoard and tag
-    self.centerViewController.view.tag = CENTER_TAG;
-    self.navController.view.tag = CENTER_TAG;
-    self.centerViewController.delegate = self;
     
-    //Assign subivew for MainViewController
-    [self.navController didMoveToParentViewController:self];
+    self.cardOneController = [self.storyboard instantiateViewControllerWithIdentifier:@"CardOneViewController"];
+    self.cardTwoController = [self.storyboard instantiateViewControllerWithIdentifier:@"CardTwoViewController"];
+    self.navBarController = [self.storyboard instantiateViewControllerWithIdentifier:@"NavBarViewController"];
     
-    [self setupGestures];
+    self.cardOneController.delegate = self;
+    self.cardTwoController.delegate = self;
+    self.navBarController.delegate = self;
+    
+    self.cardControllers = [[NSMutableArray alloc] initWithObjects: self.cardOneController, self.cardTwoController, nil];
+    [self setupSubviewsUsingArray: self.cardControllers];
+    [self setupGesturesUsingArray: self.cardControllers];
+    [self.view addSubview:self.navBarController.view];
 }
 
-/* getLeftView:
- Allocates LeftView if necessary, sets shadows for the centerView
- and returns the view
- */
--(UIView *)getLeftView
+-(void) setupSubviewsUsingArray: (NSMutableArray*) viewControllers;
 {
-    if(_leftViewController == nil)
-    {
-         //Allocate and tag
-        
-        self.leftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LeftViewController"];
-        self.leftViewController.view.tag = LEFT_TAG;
-        self.leftViewController.delegate = _centerViewController;
-        
-        //Assign subview for MainViewController
-        [self.view addSubview:self.leftViewController.view];
-        [self addChildViewController:_leftViewController];
-        [_leftViewController didMoveToParentViewController:self];
-        
-        //Create rect holder for leftView
-        _leftViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-        
+    for(UIViewController* controller in viewControllers){
+        [self.view addSubview:controller.view];
     }
     
-    self.showingLeftPanel = YES;
-    [self showCenterViewWithShadow: YES withOffset:-2];
     
-    return self.leftViewController.view;
+    
+    [self.view bringSubviewToFront:self.cardOneController.view];
+
+    
+    //SetupviewLocations
 }
 
-/*resetMainView
- Removes the leftView from the main view subview list
- Sets leftViewController to nil
- Resets booleans and indicator variables concerning
- the left view and slid movement
- */
--(void)resetMainView
+-(void) viewWillAppear:(BOOL)animated
 {
-    // remove left view and reset variables, if needed
-    if (_leftViewController != nil)
-    {
-        [self.leftViewController.view removeFromSuperview];
-        self.leftViewController = nil;
-        
-        _centerViewController.leftButton.tag = 1;
-        self.showingLeftPanel = NO;
-    }
+    self.cardOneController.view.frame = CGRectMake(self.viewingPoint.x, self.viewingPoint.y, self.view.frame.size.width - (EDGE_OFFSET * 2), self.view.frame.size.height - (EDGE_OFFSET + TOP_EDGE_OFFSET));
+    self.cardTwoController.view.frame = CGRectMake(self.waitingPoint.x, self.waitingPoint.y, self.view.frame.size.width - (EDGE_OFFSET * 2), self.view.frame.size.height - (EDGE_OFFSET + TOP_EDGE_OFFSET));
     
-    // remove view shadows
-    [self showCenterViewWithShadow:NO withOffset:0];
+    
+    self.navBarController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, NAV_BAR_HEIGHT);
+}
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSURLSessionDataTask* task = [self.appDelegate handleGETRequestToPath:@"q-entry-level+%26+internship?pshid=56324&ssty=2&cflg=r&jbd=Jobbie.jobamatic.com&clip=24.13.241.216" toServer: 1];
+    
+    [self.view bringSubviewToFront:self.actIndicator];
+    [self.actIndicator setAnimatingWithStateOfTask:task];
+    [self.actIndicator setHidden:NO];
+}
+
+-(void) setupGesturesUsingArray:(NSMutableArray*)controllers
+{
+    
+    UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self.cardOneController action:@selector(animateNextCard:)];
+    [self.cardOneController.view addGestureRecognizer:panGesture];
+    
+    panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self.cardTwoController action:@selector(animateNextCard:)];
+    [self.cardTwoController.view addGestureRecognizer:panGesture];
+}
+
+-(UIViewController*)getHiddenCard
+{
+    if(self.currentCard){
+        return [self.cardControllers objectAtIndex:0];
+    } else {
+        return [self.cardControllers objectAtIndex:1];
+    }
+}
+
+-(void) tickCurrentCard
+{
+    self.currentCard = 0 == self.currentCard ? 1 : 0;
 }
 
 
@@ -163,6 +208,28 @@
     
 }
 
+/* +----------------------------------------------------+
+   |                       Actions                      |
+   +----------------------------------------------------+
+*/
+
+-(void)onBtnSettings:(id) sender
+{
+    if(self.settingsController == nil){
+        self.settingsController = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+    }
+
+    [self.view addSubview:self.settingsController.view];
+    [self.view bringSubviewToFront:self.settingsController.view];
+    [UIView animateWithDuration:SLIDE_TIMING animations:^{
+        self.settingsController.view.alpha = 1;
+    }];
+}
+
+-(void)onBtnProfiles:(id)sender
+{
+    
+}
 
 /* +----------------------------------------------------+
    |                 Animation & Gestures               |
@@ -171,102 +238,118 @@
  Animation control for moving the centerView to the right
  to reveal the leftView
  */
--(void)movePanelRight
+-(void) animateCardSwipe:(id)sender
 {
-    UIView *childView = [self getLeftView];
-    [self.view sendSubviewToBack:childView];
-    
-    [UIView animateWithDuration:SLIDE_TIMING delay:0 options:UIViewAnimationOptionBeginFromCurrentState
-                     animations:^{_navController.view.frame = CGRectMake(self.view.frame.size.width - PANEL_WIDTH, 0, self.view.frame.size.width, self.view.frame.size.height);
-                     } completion:^(BOOL finished) {
-                         if (finished) {
-                             _centerViewController.leftButton.tag = 0;
-                         }
-                     }];
-}
-
-/*
- Animation control for moving the centerView to its original
- position
- */
--(void)movePanelToOriginalPosition
-{
-    [UIView animateWithDuration:SLIDE_TIMING delay:0 options:UIViewAnimationOptionBeginFromCurrentState
-                     animations:^{
-                         _navController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-                     }
-                     completion:^(BOOL finished) {
-                         if (finished) {
-                             
-                             [self resetMainView];
-                         }
-                     }];
-}
-
-
-/*setupGestures
- Initializes gesture controls for the view sliders
- */
--(void)setupGestures
-{
-    UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(movePanel:)];
-    [panRecognizer setMinimumNumberOfTouches:1];
-    [panRecognizer setMaximumNumberOfTouches:1];
-    [panRecognizer setDelegate:self];
-    
-    [_navController.view addGestureRecognizer:panRecognizer];
-}
-
-/*movePanel
- Handles the gesture based movement for the
- main view
- */
--(void)movePanel:(id)sender
-{
-    [[[(UITapGestureRecognizer*)sender view] layer] removeAllAnimations];
-    
-    CGPoint translatedPoint = [(UIPanGestureRecognizer*)sender translationInView: self.view];
-    CGPoint velocity = [(UIPanGestureRecognizer*)sender velocityInView:[sender view]];
-    
-    if([(UIPanGestureRecognizer*) sender state] == UIGestureRecognizerStateBegan){
-        UIView *childView = nil;
-        
-        if (velocity.x > 0){
-            if(!_showingLeftPanel){
-                childView = [self getLeftView];
-            }
-        }
-        
-        [self.view sendSubviewToBack:childView];
-        [[sender view] bringSubviewToFront:[(UIPanGestureRecognizer*)sender view]];
+    UIViewController* viewingCard;
+    UIViewController* waitingCard;
+    if([((UIViewController*)sender).view isEqual: self.cardOneController.view]){
+        viewingCard = self.cardOneController;
+        waitingCard = self.cardTwoController;
+    } else {
+        viewingCard = self.cardTwoController;
+        waitingCard = self.cardOneController;
     }
+    
+    [[[(UIPanGestureRecognizer*)sender view] layer] removeAllAnimations];
+    
+    CGPoint translatedPoint = [(UIPanGestureRecognizer*)sender translationInView: viewingCard.view];
     
     if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
         
-        if (!_showPanel) {
-            [self movePanelToOriginalPosition];
-        } else {
-            if (_showingLeftPanel) {
-                [self movePanelRight];
+        if (self.showingNewCard) {
+            if(viewingCard.view.frame.origin.y < (0 - (self.view.frame.size.height * (3/5.0)))){
+                [self animateMatchedCard: viewingCard withWaitingCard:waitingCard];
+            } else {
+                [self animateRejectedCard: viewingCard withWaitingCard:waitingCard];
             }
+        } else {
+            [self returnCardToOriginalPosition:sender];
         }
     }
     
     if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateChanged) {
         
         // Are you more than halfway? If so, show the panel when done dragging by setting this value to YES (1).
-        _showPanel = abs([sender view].center.x - _navController.view.frame.size.width/2) > _navController.view.frame.size.width/2;
-        
+        self.showingNewCard = viewingCard.view.frame.origin.y < (0 - (self.view.frame.size.height * (3/5.0))) || viewingCard.view.frame.origin.y > viewingCard.view.frame.size.height * (3/5.0);
         //Checks if the new center of the view will be greater than the center of the screen. If so, the view center is updated
         //if not, nothing happens because the user should not be able to swipe the centerView to the left
-        CGPoint newPoint = CGPointMake([sender view].center.x + translatedPoint.x, [sender view].center.y);
-        if (newPoint.x > _navController.view.frame.size.width/2){
-            [sender view].center = newPoint;
-        }
-        [(UIPanGestureRecognizer*)sender setTranslation:CGPointMake(0,0) inView:self.view];
+        CGPoint newPoint = CGPointMake([sender view].center.x, [sender view].center.y + translatedPoint.y);
         
-        _preVelocity = velocity;
+        [sender view].center = newPoint;
+            
+        if(self.showingNewCard){
+            [UIView animateWithDuration:SLIDE_TIMING animations:^{
+                viewingCard.view.alpha = 0.4;
+            }];
+        } else {
+            [UIView animateWithDuration:SLIDE_TIMING animations:^{
+                viewingCard.view.alpha = 1;
+            }];
+        }
+    
+        
+        [(UIPanGestureRecognizer*)sender setTranslation:CGPointMake(0,0) inView:self.view];
     }
     
 }
+
+-(void) returnCardToOriginalPosition: (UIViewController*)card
+{
+    UIView* cardView = [card view];
+    
+    [UIView animateWithDuration:SLIDE_TIMING animations:^{
+        cardView.frame = CGRectMake(self.viewingPoint.x, self.viewingPoint.y, cardView.frame.size.width, cardView.frame.size.height);
+        cardView.alpha = 1.0;
+    } completion:nil];
+    self.showingNewCard = NO;
+}
+
+
+-(void)animateMatchedCard: (UIViewController*) matchedCard withWaitingCard:(UIViewController*) waitingCard
+{
+    [UIView animateWithDuration:SLIDE_TIMING animations:^{
+        matchedCard.view.frame = CGRectMake(self.matchPoint.x, self.matchPoint.y, matchedCard.view.frame.size.width, matchedCard.view.frame.size.height);
+        
+    } completion:^(BOOL complete){
+        if(complete){[self animateCardToViewing:waitingCard andCardToWaiting:matchedCard];}
+    }];
+}
+
+-(void)animateRejectedCard: (UIViewController*) rejectedCard withWaitingCard:(UIViewController*)waitingCard
+{
+    [UIView animateWithDuration:SLIDE_TIMING animations:^{
+        rejectedCard.view.frame = CGRectMake(self.rejectPoint.x, self.rejectPoint.y, rejectedCard.view.frame.size.width, rejectedCard.view.frame.size.height);
+        
+    } completion:^(BOOL complete){
+        if(complete){[self animateCardToViewing:waitingCard andCardToWaiting:rejectedCard];}
+    }];
+
+}
+
+-(IBAction)animateShuffledCard:(id)sender{
+    
+    UIViewController* shuffledCard = [self.cardControllers objectAtIndex:self.currentCard];
+    UIViewController* waitingCard  = [self getHiddenCard];
+    
+    [UIView animateWithDuration:SLIDE_TIMING animations:^{
+        shuffledCard.view.frame = CGRectMake(shuffledCard.view.frame.origin.x + MOVE_DOWN_X, shuffledCard.view.frame.origin.y + MOVE_DOWN_Y, shuffledCard.view.frame.size.width, shuffledCard.view.frame.size.height);
+    } completion:^(BOOL complete){
+        if(complete){[self animateCardToViewing:waitingCard andCardToWaiting:shuffledCard];}
+    }];
+}
+
+-(void)animateCardToViewing:(UIViewController*) card andCardToWaiting:(UIViewController*)newWaiting
+{
+    [self.view bringSubviewToFront:card.view];
+    [UIView animateWithDuration:SLIDE_TIMING animations:^{
+        card.view.frame = CGRectMake(self.viewingPoint.x, self.viewingPoint.y, card.view.frame.size.width, card.view.frame.size.height);
+    } completion:^(BOOL complete){
+        newWaiting.view.frame = CGRectMake(self.waitingPoint.x, self.waitingPoint.y, newWaiting.view.frame.size.width, newWaiting.view.frame.size.height);
+        newWaiting.view.alpha = 1;
+        [self tickCurrentCard];
+    }];
+   
+}
+
+
 @end

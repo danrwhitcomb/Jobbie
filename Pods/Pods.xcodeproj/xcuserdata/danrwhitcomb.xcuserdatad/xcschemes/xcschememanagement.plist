@@ -4,27 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-AFIncrementalStore.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-AFNetworking.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-InflectorKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-SSToolkit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-TransformerKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,32 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>03DE833B85C14073A6E6F1A4</key>
+		<key>D5D8C3460ACF4FA0A5C6B39E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5963574B1BE744629675845F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>61AFEFAB9C8D4807BDA9CD4A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6ED60B0AB6714749A2FDF2DC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9D9B128873354C39B479E4E5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E4788AD95DDB4C8684F5D139</key>
+		<key>E1E6F486D8754B7B91C98DEB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

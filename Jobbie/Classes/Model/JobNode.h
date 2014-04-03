@@ -7,14 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JobLocation.h"
+
 
 @interface JobNode : NSObject
 
 @property NSString* jobName;
 @property NSString* jobCompany;
-@property NSString* jobLocation;
+@property JobLocation* jobLocation;
 @property NSString* jobDescription;
-@property NSString* jobImage;
+@property NSString* jobSRC;
 @property NSString* jobType;
+@property NSString* jobDate;
 
 @end

@@ -20,17 +20,41 @@
 @property (nonatomic, strong) EmbedDataViewController* descriptController;
 @property (nonatomic, strong) EmbedDataViewController* currentController;
 
+@property int x_location;
+@property int y_location;
+
 @end
 
 @implementation DataViewController
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    
+    
+    if (self) {
+        if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+            self.edgesForExtendedLayout = UIRectEdgeNone;
+        
+    }
+    return self;
+}
+
+/*+----------------------------+
+  |      View Loaders          |
+  +----------------------------+*/
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setupViews];
     [self setupGestures];
+    [self setupGraphics];
     
     self.currentSegueIdentifier = SegueIdentifierFirst;
+    
+    _x_location = self.view.frame.origin.x;
+    _y_location = self.view.frame.origin.y;
     //[self performSegueWithIdentifier:self.currentSegueIdentifier sender:nil];
 }
 
@@ -50,24 +74,28 @@
     
     _infoController.view.tag = MAIN_TAG;
     _infoController.delegate = self;
+    _descriptController.delegate = self;
     
     //Assign subivew for MainViewController
     [self.infoController didMoveToParentViewController:self];
     _currentController = _infoController;
-    
-    
-    _descriptController.delegate = self;
 }
 
 -(void) setupGestures
 {
     UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(swipeToNextCard:)];
     [panRecognizer setMinimumNumberOfTouches:1];
-    [panRecognizer setMaximumNumberOfTouches:1];
     [panRecognizer setDelegate:self];
     
     [self.view addGestureRecognizer:panRecognizer];
 
+}
+
+-(void) setupGraphics
+{
+    //Shadows
+    self.view.layer.shadowOpacity = 0.5;
+    self.view.layer.shadowOffset = CGSizeMake(1.5f, 3.0f);
 }
 
 -(void)swipeToNextCard:(UIGestureRecognizer*)gestureRecognizer

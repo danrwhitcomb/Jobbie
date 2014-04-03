@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "LeftViewController.h"
 #import "ControllerMethods.h"
+#import "DataViewController.h"
+#import "Messenger.h"
+#import "Model.h"
 
 @protocol CenterViewControllerDelegate <NSObject>
-
 @optional
 - (void)movePanelRight;
 @required
@@ -19,18 +21,21 @@
 
 @end
 
-@interface CenterViewController : UIViewController <LeftViewControllerDelegate>
-
+@interface CenterViewController : UIViewController 
 @property (nonatomic, assign) id<CenterViewControllerDelegate> delegate;
 
 //Buttons and Labels
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *leftButton;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *profileButton;
 
 //ImageView
 @property (nonatomic, strong) IBOutlet UIImageView *jobImage;
 
+
 @property ControllerMethods* controllerMethods;
 
+@property Messenger* messenger;
+@property Model* model;
 
 - (IBAction)btnMovePanelRight:(id)sender;
 

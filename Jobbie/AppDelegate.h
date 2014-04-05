@@ -13,7 +13,7 @@
 
 @class MainViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, MessengerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

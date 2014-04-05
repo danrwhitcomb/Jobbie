@@ -21,19 +21,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-    //Allocate Model structure
-    self.model = [[Model alloc] init];
-    
-    //Connect to server with new thread
-    
-    self.messenger = [[Messenger alloc] init];
-    self.messenger.delegate = self;
-    /*
-    NSThread* serverConnectionThread = [[NSThread alloc] initWithTarget:self.messenger selector:@selector(initNetworkCommunication) object:nil];
-    [serverConnectionThread start];
-     */
-    
     //Setup window and such
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
@@ -118,20 +105,5 @@
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
-
-#pragma-mark Data Handlers
-
--(NSURLSessionDataTask*)handleGETRequestToPath:(NSString*)path toServer:(int)server
-{
-    return [self.messenger retrieveDataWithURL:path andFromServer: server];
-}
-
--(BOOL)loadResponseIntoModel:(NSXMLParser *)xmlParser
-{
-    [xmlParser setDelegate:self.model];
-    [xmlParser parse];
-    return YES;
-    
-}
 
 @end

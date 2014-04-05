@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JobNode.h"
+#import "SearchProfile.h"
 
 @interface Model : NSObject <NSXMLParserDelegate>
 

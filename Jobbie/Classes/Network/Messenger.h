@@ -14,20 +14,6 @@
 
 #import <AFNetworking/AFNetworking.h>
 
-#import "Model.h"
-
-@protocol MessengerDelegate <NSObject>
-
--(BOOL) loadResponseIntoModel: (NSXMLParser*) xmlParser;
-
-@end
-
 @interface Messenger : NSObject
 
-@property AFHTTPSessionManager* simplyHiredClient;
-@property AFHTTPSessionManager* jobbieClient;
-@property id<MessengerDelegate> delegate;
-
-- (NSURLSessionDataTask*)retrieveDataWithURL: (NSString*) requestURL andFromServer:(int)server;
-- (NSMutableArray*)loginToServer;
 @end

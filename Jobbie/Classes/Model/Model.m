@@ -18,19 +18,31 @@
 @property JobNode* currentJob;
 @property NSString* currentValue;
 
-@property NSMutableArray* userProfiles;
+@property NSMutableArray* searchProfiles;
+@property SearchProfile* currentProfile;
 
 @end
 
 
 @implementation Model
 
--(id)init
-{
-    //Initialize arrays
-    _opportunityList = [[NSMutableArray alloc] init];
-    _matchList = [[NSMutableArray alloc] init];
-    _xList = [[NSMutableArray alloc] init];
+
++ (id)sharedModel {
+    static Model *sharedModel = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedModel = [[self alloc] init];
+    });
+    return sharedModel;
+}
+
+- (id) init {
+    if (self = [super init]) {
+        self.opportunityList = [[NSMutableArray alloc] init];
+        self.matchList = [[NSMutableArray alloc] init];
+        self.xList = [[NSMutableArray alloc] init];
+        self.jobList = [[NSMutableArray alloc] init];
+    }
     
     return self;
 }
@@ -53,54 +65,111 @@
 
 -(NSURL*)buildURL
 {
-    return [NSURL URLWithString:@"http://http://api.simplyhired.com/a/jobs-api/xml-v2/q-entry-level+%26+internship?pshid=56324&ssty=2&cflg=r&jbd=Jobbie.jobamatic.com&clip=24.13.241.216"];
+    return nil;
 }
 
-#pragma -mark XML Parsing
+#pragma -mark JSON Parsing
 
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict
+-(BOOL)validateData:(NSDictionary*) data
 {
-    if([elementName isEqualToString:@"r"]){
-        JobNode* jobNode = [JobNode new];
-        [self.jobList addObject: jobNode];
-        self.currentJob = jobNode;
-     
+    NSDictionary* results = [data objectForKey:@"result_info"];
+    int totalSponsored = [[results objectForKey:@"total_sponsored"] intValue];
+    int totalJobs = [[results objectForKey:@"total_jobs"] intValue];
     
-    } else if ([elementName isEqualToString:@"loc"]){
-        JobLocation* location = [JobLocation new];
-        [location setCity: [attributeDict objectForKey:@"cty"]];
-        [location setStateAbrv: [attributeDict objectForKey:@"st"]];
-        [location setPostalCode: [attributeDict objectForKey:@"postal"]];
-        [location setCountry: [attributeDict objectForKey:@"county"]];
-        [location setRegion: [attributeDict objectForKey:@"region"]];
-        [location setCountry: [attributeDict objectForKey:@"country"]];
-        [self.currentJob setJobLocation: location];
+    if(totalJobs == 0 || totalSponsored == totalJobs){
+        return NO;
+    }
+    
+    return YES;
+}
+
+-(BOOL)loadJSONContent:(NSDictionary*) data
+{
+    
+    if([self validateData:data]){
+        NSArray* jobs = [data objectForKey:@"jobs"];
+        
+        JobNode* jobNode;
+        for(NSDictionary* job in jobs){
+            jobNode = [JobNode new];
+            
+            jobNode.jobName = [job objectForKey:@"job_title"];
+            jobNode.jobSRC = [job objectForKey:@"job_title_link"];
+            jobNode.jobCompany = [job objectForKey:@"job_company"];
+            jobNode.jobTag = [job objectForKey:@"job_tag"];
+            jobNode.jobDate = [job objectForKey:@"job_date_added"];
+            jobNode.jobDescription = [job objectForKey:@"job_description"];
+            
+            JobLocation* location = [JobLocation new];
+            location.country = [job objectForKey:@"job_country"];
+            location.postalCode = [job objectForKey:@"job_zip"];
+            location.city = [job objectForKey:@"job_location"];
+            
+            jobNode.jobLocation = location;
+            [self.jobList addObject:jobNode];
+
+        }
+        
+        return YES;
+        
+    } else {
+        
+        return NO;
+        
     }
 }
 
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+-(void)resetModel
 {
-    self.currentValue = string;
+    [self.opportunityList removeAllObjects];
+    [self.xList removeAllObjects];
+    [self.matchList removeAllObjects];
+    for(JobNode* job in self.jobList){[self.opportunityList addObject:job];}
+    self.currentJob = [self.jobList objectAtIndex:0];
 }
 
--(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
-{
-    if([elementName isEqualToString:@"jt"]){
-        [self.currentJob setJobName: self.currentValue];
-    } else if([elementName isEqualToString:@"cn"]){
-        [self.currentJob setJobCompany:self.currentValue];
-    } else if([elementName isEqualToString:@"src"]){
-        [self.currentJob setJobSRC:self.currentValue];
-    } else if([elementName isEqualToString:@"ty"]){
-        [self.currentJob setJobType:self.currentValue];
-    } else if([elementName isEqualToString:@"loc"]){
-        [self.currentJob setJobSRC:self.currentValue];
-    } else if([elementName isEqualToString:@"dp"]){
-        [self.currentJob setJobDate:self.currentValue];
-    } else if([elementName isEqualToString:@"e"]){
-        [self.currentJob setJobDescription:self.currentValue];
-    }
 
+#pragma mark Search Profiles
+
+-(SearchProfile*)getProfileWithName:(NSString*)name
+{
+    for(SearchProfile* prof in self.searchProfiles){
+        if([name isEqualToString:prof.name]){
+            return prof;
+        }
+    }
+    return nil;
+}
+
+-(SearchProfile*)addProfile:(SearchProfile*)prof
+{
+    [self.searchProfiles addObject:prof];
+    return prof;
+}
+
+-(SearchProfile*)removeProfile:(SearchProfile*)prof
+{
+    [self.searchProfiles removeObject:prof];
+    return prof;
+}
+
+-(SearchProfile*)removeProfileWithName:(NSString*)name
+{
+    SearchProfile* prof = [self getProfileWithName:name];
+    if(prof != nil){
+        [self.searchProfiles removeObject:prof];
+        return prof;
+    } else {
+        return nil;
+    }
+}
+
+-(SearchProfile*)updateProfileWithName:(NSString*)name andProf:(SearchProfile*) newProf
+{
+    SearchProfile* prof = [self getProfileWithName:name];
+    int index = [self.searchProfiles indexOfObject:prof];
+    [self.searchProfiles replaceObjectAtIndex:index withObject:newProf];
+    return newProf;
 }
 
 @end

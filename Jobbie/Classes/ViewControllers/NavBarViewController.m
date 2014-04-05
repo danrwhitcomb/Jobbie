@@ -62,7 +62,7 @@
     [self.delegate onBtnSettings:sender];
 }
 
--(IBAction) onButtonProfiles
+-(IBAction) onButtonProfiles:(id)sender
 {
     
 }

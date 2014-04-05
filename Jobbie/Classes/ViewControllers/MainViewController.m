@@ -148,15 +148,6 @@
     self.navBarController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, NAV_BAR_HEIGHT);
 }
 
--(void) viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    NSURLSessionDataTask* task = [self.appDelegate handleGETRequestToPath:@"q-entry-level+%26+internship?pshid=56324&ssty=2&cflg=r&jbd=Jobbie.jobamatic.com&clip=24.13.241.216" toServer: 1];
-    
-    [self.view bringSubviewToFront:self.actIndicator];
-    [self.actIndicator setAnimatingWithStateOfTask:task];
-    [self.actIndicator setHidden:NO];
-}
 
 -(void) setupGesturesUsingArray:(NSMutableArray*)controllers
 {
@@ -340,7 +331,6 @@
 
 -(void)animateCardToViewing:(UIViewController*) card andCardToWaiting:(UIViewController*)newWaiting
 {
-    [self.view bringSubviewToFront:card.view];
     [UIView animateWithDuration:SLIDE_TIMING animations:^{
         card.view.frame = CGRectMake(self.viewingPoint.x, self.viewingPoint.y, card.view.frame.size.width, card.view.frame.size.height);
     } completion:^(BOOL complete){

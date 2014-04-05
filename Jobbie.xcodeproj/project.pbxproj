@@ -20,6 +20,8 @@
 		3930B2E918E9127B001F475F /* JobLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3930B2E818E9127B001F475F /* JobLocation.m */; };
 		393C1EF718ED056B0095F9A0 /* ProfIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 393C1EF618ED056B0095F9A0 /* ProfIcon.png */; };
 		393C1EF918ED0B460095F9A0 /* shuffleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 393C1EF818ED0B460095F9A0 /* shuffleIcon.png */; };
+		393C1EFC18EE69B70095F9A0 /* SearchProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 393C1EFB18EE69B70095F9A0 /* SearchProfile.m */; };
+		393C1EFE18EE71C40095F9A0 /* iconTransparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 393C1EFD18EE71C40095F9A0 /* iconTransparent.png */; };
 		393D58CA1871DC7D0035CBD4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 393D58C81871DC7D0035CBD4 /* Model.xcdatamodeld */; };
 		393D58CC1871DF2A0035CBD4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393D58CB1871DF2A0035CBD4 /* CoreData.framework */; };
 		393EF4D918483FD600224246 /* heartButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 393EF4D718483FD600224246 /* heartButton.png */; };
@@ -107,6 +109,9 @@
 		3930B2E818E9127B001F475F /* JobLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JobLocation.m; path = Model/JobNodeClasses/JobLocation.m; sourceTree = "<group>"; };
 		393C1EF618ED056B0095F9A0 /* ProfIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProfIcon.png; sourceTree = "<group>"; };
 		393C1EF818ED0B460095F9A0 /* shuffleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuffleIcon.png; sourceTree = "<group>"; };
+		393C1EFA18EE69B70095F9A0 /* SearchProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchProfile.h; path = Model/SearchProfile.h; sourceTree = "<group>"; };
+		393C1EFB18EE69B70095F9A0 /* SearchProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchProfile.m; path = Model/SearchProfile.m; sourceTree = "<group>"; };
+		393C1EFD18EE71C40095F9A0 /* iconTransparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconTransparent.png; sourceTree = "<group>"; };
 		393D58C91871DC7D0035CBD4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		393D58CB1871DF2A0035CBD4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		393EF4D718483FD600224246 /* heartButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heartButton.png; sourceTree = "<group>"; };
@@ -338,6 +343,8 @@
 				39BFEE18185A9CA4004593EE /* Model.m */,
 				3930B2E718E9127B001F475F /* JobLocation.h */,
 				3930B2E818E9127B001F475F /* JobLocation.m */,
+				393C1EFA18EE69B70095F9A0 /* SearchProfile.h */,
+				393C1EFB18EE69B70095F9A0 /* SearchProfile.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -367,6 +374,7 @@
 		39C24A511845B6DA00926ED9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				393C1EFD18EE71C40095F9A0 /* iconTransparent.png */,
 				393C1EF818ED0B460095F9A0 /* shuffleIcon.png */,
 				393C1EF618ED056B0095F9A0 /* ProfIcon.png */,
 				39A59AA218EA73400048E492 /* stack.png */,
@@ -573,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39A07094184D453B00FD88A5 /* gearIcon.jpg in Resources */,
+				393C1EFE18EE71C40095F9A0 /* iconTransparent.png in Resources */,
 				39C24A611848326A00926ED9 /* Entypo.otf in Resources */,
 				39C42C1B18382076000DFA1A /* Main_iPhone.storyboard in Resources */,
 				393EF4D918483FD600224246 /* heartButton.png in Resources */,
@@ -690,6 +699,7 @@
 				39C42C1518381ED4000DFA1A /* CenterViewController.m in Sources */,
 				39904C3C18D9522200CE9C59 /* DataTwoViewController.m in Sources */,
 				397CFE4818EA676600D3722E /* SettingsViewController.m in Sources */,
+				393C1EFC18EE69B70095F9A0 /* SearchProfile.m in Sources */,
 				391093AB185E8BC400056F6A /* ControllerMethods.m in Sources */,
 				39904C3918D7ECA600CE9C59 /* Messenger.m in Sources */,
 			);

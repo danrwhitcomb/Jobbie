@@ -12,12 +12,12 @@
 
 @interface JobNode : NSObject
 
+@property NSString* jobTag;
 @property NSString* jobName;
 @property NSString* jobCompany;
 @property JobLocation* jobLocation;
 @property NSString* jobDescription;
 @property NSString* jobSRC;
-@property NSString* jobType;
 @property NSString* jobDate;
 
 @end

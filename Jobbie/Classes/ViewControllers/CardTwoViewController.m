@@ -1,27 +1,23 @@
 //
-//  CardOneViewController.m
+//  CardTwoViewController.m
 //  Jobbie
 //
 //  Created by Dan Whitcomb on 3/26/14.
 //  Copyright (c) 2014 Jobbie. All rights reserved.
 //
 
-#import "CardOneViewController.h"
-#import "CardOneMainViewController.h"
-#import "CardWebViewController.h"
-#import "MainViewController.h"
+#import "CardTwoViewController.h"
+#import "CardTwoMainViewController.h"
 
-@interface CardOneViewController () <CardOneMainViewControllerDelegate>
+@interface CardTwoViewController () <CardTwoMainViewControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *lblHidden;
-
 @property UIViewController* currentController;
-
-
+@property CardWebViewController* webViewController;
 
 @end
 
-@implementation CardOneViewController
+@implementation CardTwoViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -65,11 +61,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)animateNextCard: (id) sender
-{
-    [self.delegate animateCardSwipe:sender];
-}
-
 - (void)swapViewControllers: (UIViewController*) controller;
 {
     
@@ -98,6 +89,11 @@
                                 self.currentController = newController;
                             }];}
 
+-(void)animateNextCard: (id) sender
+{
+    [self.delegate animateCardSwipe:sender];
+}
+
 -(void)onBtnShuffle
 {
     [self.delegate animateShuffledCard];
@@ -114,6 +110,8 @@
     self.mainController.view.hidden = NO;
     self.lblHidden.hidden = YES;
 }
+
+
 /*
 #pragma mark - Navigation
 

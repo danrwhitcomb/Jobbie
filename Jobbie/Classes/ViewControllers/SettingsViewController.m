@@ -11,18 +11,11 @@
 
 @implementation SettingsViewController
 
--(void)viewDidLoad
-{
-    [self.view setTintColor:[UIColor blackColor]];
-}
-
 - (IBAction)onBtnClose:(id)sender
 {
-    NSLog(@"Closing Settings");
-    [UIView animateWithDuration:FADE_TIMING animations:^{
-        self.view.alpha = 0;
-    }];
-    //[self.view removeFromSuperview];
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
+
+
 
 @end

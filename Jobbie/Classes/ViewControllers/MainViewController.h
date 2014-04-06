@@ -20,6 +20,8 @@
 #import "SettingsViewController.h"
 
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController <UIGestureRecognizerDelegate, CardOneViewControllerDelegate, CardTwoViewControllerDelegate, NavBarViewControllerDelegate>
+
+-(void)animateShuffledCard;
 
 @end

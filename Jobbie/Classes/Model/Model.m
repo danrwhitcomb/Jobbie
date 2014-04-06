@@ -8,18 +8,10 @@
 
 #import "Model.h"
 
+
 @interface Model ()
 
-@property NSMutableArray* opportunityList;
-@property NSMutableArray* matchList;
-@property NSMutableArray* xList;
-@property NSMutableArray* jobList;
 
-@property JobNode* currentJob;
-@property NSString* currentValue;
-
-@property NSMutableArray* searchProfiles;
-@property SearchProfile* currentProfile;
 
 @end
 
@@ -42,6 +34,16 @@
         self.matchList = [[NSMutableArray alloc] init];
         self.xList = [[NSMutableArray alloc] init];
         self.jobList = [[NSMutableArray alloc] init];
+        
+        self.searchProfiles = [[NSMutableArray alloc] init];
+        
+        if([self.searchProfiles count] != 0){
+            self.currentProfile = [self.searchProfiles objectAtIndex:0];
+        }
+        
+        self.API_KEY = @"27B62E8B312D95F76FF46201A2C02C61";
+        self.SEARCH_KEY = @"cf287e0c63f301ca3d795780dc1771be";
+        self.BASE_URL = @"http://www.linkup.com/developers/v-1/search-handler.js?";
     }
     
     return self;

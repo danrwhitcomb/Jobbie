@@ -13,5 +13,33 @@
 @interface Model : NSObject <NSXMLParserDelegate>
 
 -(NSURL*)buildURL;
++(id)sharedModel;
+
+@property NSMutableArray* opportunityList;
+@property NSMutableArray* matchList;
+@property NSMutableArray* xList;
+@property NSMutableArray* jobList;
+
+@property JobNode* currentJob;
+@property NSString* currentValue;
+
+@property NSMutableArray* searchProfiles;
+@property SearchProfile* currentProfile;
+
+@property NSString* API_KEY;
+@property NSString* SEARCH_KEY;
+@property NSString* BASE_URL;
+
+-(BOOL)loadJSONContent:(NSDictionary*) data;
+
+-(SearchProfile*)getProfileWithName:(NSString*)name;
+
+-(SearchProfile*)addProfile:(SearchProfile*)prof;
+
+-(SearchProfile*)removeProfile:(SearchProfile*)prof;
+
+-(SearchProfile*)removeProfileWithName:(NSString*)name;
+
+-(SearchProfile*)updateProfileWithName:(NSString*)name andProf:(SearchProfile*) newProf;
 
 @end

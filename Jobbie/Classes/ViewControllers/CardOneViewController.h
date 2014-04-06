@@ -8,14 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
+@class CardWebViewController;
+@class CardOneMainViewController;
+
 @protocol CardOneViewControllerDelegate <NSObject>
 
 -(void)animateCardSwipe: (id)sender;
+-(void)animateShuffledCard;
 
 @end
 
-@interface CardOneViewController : UIViewController
+@interface CardOneViewController : UIViewController 
 
 @property id<CardOneViewControllerDelegate> delegate;
+- (void)swapViewControllers: (UIViewController*) controller;
+
+@property CardWebViewController* webViewController;
+@property CardOneMainViewController* mainController;
+
+-(void) showNoResults;
+-(void) showResults;
 
 @end

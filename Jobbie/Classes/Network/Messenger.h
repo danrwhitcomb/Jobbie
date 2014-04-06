@@ -16,4 +16,10 @@
 
 @interface Messenger : NSObject
 
++(id)sharedMessenger;
+-(void)setJSONResponseSerializer;
+-(void)setXMLResponseSerializer;
+-(void)dealloc;
+- (AFHTTPRequestOperation*)makeGETRequestWithString:(NSString*) url parameters: (NSDictionary*) param success: (void (^)(AFHTTPRequestOperation* request, id response)) success failure: (void(^)(AFHTTPRequestOperation* request, NSError* error)) failure;
+
 @end

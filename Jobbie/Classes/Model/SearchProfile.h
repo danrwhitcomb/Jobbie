@@ -14,6 +14,8 @@
 @property NSString* location;
 @property NSString* jobType;
 @property NSString* company;
-@property NSInteger* radius;
+@property NSString* radius;
+
+-(NSString*) buildURL;
 
 @end

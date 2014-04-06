@@ -7,11 +7,15 @@
 //
 
 //Import Frameworks
-
+#import <MBProgressHUD/MBProgressHUD.h>
 
 //Import My files
 #import "MainViewController.h"
-
+#import "Model.h"
+#import "CardOneMainViewController.h"
+#import "CardTwoMainViewController.h"
+#import "CardOneViewController.h"
+#import "CardTwoViewController.h"
 
 //QuickTagsForViews
 #define CARD_ONE_TAG 1
@@ -32,12 +36,15 @@
 #define EDGE_OFFSET 10
 
 
-@interface MainViewController () <UIGestureRecognizerDelegate, CardOneViewControllerDelegate, CardTwoViewControllerDelegate, NavBarViewControllerDelegate>
+@class CardOneViewController;
+@class CardTwoViewController;
+
+@interface MainViewController () 
 
 //Controllers
 @property (nonatomic, strong) CardOneViewController *cardOneController;
 @property (nonatomic, strong) CardTwoViewController *cardTwoController;
-@property (nonatomic, strong) NavBarViewController  *navBarController;
+@property (nonatomic, strong) UIView*  navBarView;
 @property (nonatomic, strong) UINavigationController* navController;
 @property (nonatomic, strong) SettingsViewController* settingsController;
 @property NSInteger currentCard;
@@ -56,7 +63,8 @@
 @property BOOL showingNewCard;
 
 //Buttons
-@property IBOutlet UIButton* btnShuffle;
+@property IBOutlet UIButton* btnSettings;
+@property IBOutlet UIButton* btnProfiles;
 
 @property AFNetworkActivityIndicatorManager* networkActIndicator;
 
@@ -87,15 +95,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupView];
-    _controllerMethods = [[ControllerMethods alloc] init];
+        _controllerMethods = [[ControllerMethods alloc] init];
     
     self.waitingPoint = CGPointMake(EDGE_OFFSET - self.view.frame.size.width, NAV_BAR_HEIGHT + EDGE_OFFSET);
     self.viewingPoint = CGPointMake(EDGE_OFFSET, NAV_BAR_HEIGHT + EDGE_OFFSET);
     self.matchPoint   = CGPointMake(EDGE_OFFSET, 0 - self.view.frame.size.height + EDGE_OFFSET);
     self.rejectPoint  = CGPointMake(EDGE_OFFSET, self.view.frame.size.height + EDGE_OFFSET);
-    [self.view bringSubviewToFront:self.btnShuffle];
     self.currentCard = 0;
+    
+    [self setupView];
+    [self loadCards];
 }
 
 - (void)didReceiveMemoryWarning
@@ -113,16 +122,18 @@
     
     self.cardOneController = [self.storyboard instantiateViewControllerWithIdentifier:@"CardOneViewController"];
     self.cardTwoController = [self.storyboard instantiateViewControllerWithIdentifier:@"CardTwoViewController"];
-    self.navBarController = [self.storyboard instantiateViewControllerWithIdentifier:@"NavBarViewController"];
     
     self.cardOneController.delegate = self;
     self.cardTwoController.delegate = self;
-    self.navBarController.delegate = self;
     
     self.cardControllers = [[NSMutableArray alloc] initWithObjects: self.cardOneController, self.cardTwoController, nil];
     [self setupSubviewsUsingArray: self.cardControllers];
     [self setupGesturesUsingArray: self.cardControllers];
-    [self.view addSubview:self.navBarController.view];
+    
+    self.cardOneController.view.frame = CGRectMake(self.viewingPoint.x, self.viewingPoint.y, self.view.frame.size.width - (EDGE_OFFSET * 2), self.view.frame.size.height - (EDGE_OFFSET + TOP_EDGE_OFFSET));
+    self.cardTwoController.view.frame = CGRectMake(self.waitingPoint.x, self.waitingPoint.y, self.view.frame.size.width - (EDGE_OFFSET * 2), self.view.frame.size.height - (EDGE_OFFSET + TOP_EDGE_OFFSET));
+    
+    self.navBarView.frame = CGRectMake(0, 0, self.view.frame.size.width, NAV_BAR_HEIGHT);
 }
 
 -(void) setupSubviewsUsingArray: (NSMutableArray*) viewControllers;
@@ -141,11 +152,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    self.cardOneController.view.frame = CGRectMake(self.viewingPoint.x, self.viewingPoint.y, self.view.frame.size.width - (EDGE_OFFSET * 2), self.view.frame.size.height - (EDGE_OFFSET + TOP_EDGE_OFFSET));
-    self.cardTwoController.view.frame = CGRectMake(self.waitingPoint.x, self.waitingPoint.y, self.view.frame.size.width - (EDGE_OFFSET * 2), self.view.frame.size.height - (EDGE_OFFSET + TOP_EDGE_OFFSET));
-    
-    
-    self.navBarController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, NAV_BAR_HEIGHT);
+
 }
 
 
@@ -204,18 +211,6 @@
    +----------------------------------------------------+
 */
 
--(void)onBtnSettings:(id) sender
-{
-    if(self.settingsController == nil){
-        self.settingsController = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
-    }
-
-    [self.view addSubview:self.settingsController.view];
-    [self.view bringSubviewToFront:self.settingsController.view];
-    [UIView animateWithDuration:SLIDE_TIMING animations:^{
-        self.settingsController.view.alpha = 1;
-    }];
-}
 
 -(void)onBtnProfiles:(id)sender
 {
@@ -317,8 +312,8 @@
 
 }
 
--(IBAction)animateShuffledCard:(id)sender{
-    
+-(void)animateShuffledCard
+{    
     UIViewController* shuffledCard = [self.cardControllers objectAtIndex:self.currentCard];
     UIViewController* waitingCard  = [self getHiddenCard];
     
@@ -341,5 +336,92 @@
    
 }
 
+/*
+ +------------------------------------+
+ |           Data Handlers            |
+ +------------------------------------+
+ */
+
+-(void)loadCards
+{
+    Model* model = [Model sharedModel];
+    SearchProfile* prof = model.currentProfile;
+    [self requestDataForProfile:prof];
+}
+
+-(void)requestDataForProfile:(SearchProfile*)prof
+{
+    Messenger* messenger = [Messenger sharedMessenger];
+    Model* model = [Model sharedModel];
+    NSString* url = [prof buildURL];
+    
+    if(url == nil){
+        [self displayNoResults];
+        return;
+    }
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        
+        [messenger makeGETRequestWithString:url parameters:nil success:^(AFHTTPRequestOperation *request, id response) {
+            if(![model loadJSONContent: response]){
+                [self showAlertWithTitle:@"No results" andMessage:@"No results returned"];
+                return;
+            }
+            [self showCards];
+            [self loadJobFromIndex:0 toCard: [self.cardControllers objectAtIndex:self.currentCard]];
+            [self loadJobFromIndex:1 toCard: [self getHiddenCard]];
+            
+        } failure:^(AFHTTPRequestOperation *request, NSError *error) {
+            [self showAlertWithTitle:@"Network Error" andMessage:@"Could not connect to server"];
+            [self displayNoResults];
+        }];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    });
+}
+
+-(void) loadJobFromIndex:(int)ind toCard:(UIViewController*)card
+{
+    if([card isMemberOfClass:[CardOneViewController class]]){
+        CardOneMainViewController* controller = ((CardOneViewController*)card).mainController;
+        [controller loadJobFromIndex:ind];
+    } else {
+        CardTwoMainViewController* controller = ((CardTwoViewController*)card).mainController;
+        [controller loadJobFromIndex:ind];
+        
+    }
+    
+}
+
+-(void)showAlertWithTitle:(NSString*)title andMessage:(NSString*)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+-(void)displayNoResults
+{
+    CardOneViewController* cardOne = ((CardOneViewController*)[self.cardControllers objectAtIndex:0]);
+    CardTwoViewController* cardTwo = ((CardTwoViewController*)[self.cardControllers objectAtIndex:1]);
+    
+    [cardOne showNoResults];
+    [cardTwo showNoResults];
+}
+
+-(void)showCards
+{
+    CardOneViewController* cardOne = ((CardOneViewController*)[self.cardControllers objectAtIndex:0]);
+    CardTwoViewController* cardTwo = ((CardTwoViewController*)[self.cardControllers objectAtIndex:1]);
+    
+    [cardOne showResults];
+    [cardTwo showResults];
+}
 
 @end

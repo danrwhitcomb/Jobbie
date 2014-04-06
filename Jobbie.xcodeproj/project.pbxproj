@@ -10,13 +10,11 @@
 		035ABFF218D9F3A700314304 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 035ABFF118D9F3A700314304 /* icon.png */; };
 		03A45A9518E4E19100047130 /* NavBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A45A9418E4E19100047130 /* NavBarViewController.m */; };
 		03FDDE3218E38F0000E5148E /* CardOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FDDE3118E38F0000E5148E /* CardOneViewController.m */; };
-		03FDDE3518E38F0E00E5148E /* CardTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FDDE3418E38F0E00E5148E /* CardTwoViewController.m */; };
 		18E3E1F05E6544288B7F442A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 217A62978DDB425FA96DC3A8 /* libPods.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		3910938F185E517E00056F6A /* loginCheckMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 3910938E185E517E00056F6A /* loginCheckMark.png */; };
 		391093AB185E8BC400056F6A /* ControllerMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 391093AA185E8BC400056F6A /* ControllerMethods.m */; };
-		391093B1186141C600056F6A /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 391093B0186141C600056F6A /* DataViewController.m */; };
-		391093BD1863B81800056F6A /* SecTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 391093BC1863B81800056F6A /* SecTableViewController.m */; };
-		3930B2E618E3C108001F475F /* duomo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3930B2E518E3C108001F475F /* duomo.png */; };
+		3926548C18EF927100D9D3BC /* CardOneMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3926548B18EF927100D9D3BC /* CardOneMainViewController.m */; };
+		3926548F18EF928000D9D3BC /* CardTwoMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3926548E18EF928000D9D3BC /* CardTwoMainViewController.m */; };
 		3930B2E918E9127B001F475F /* JobLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3930B2E818E9127B001F475F /* JobLocation.m */; };
 		393C1EF718ED056B0095F9A0 /* ProfIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 393C1EF618ED056B0095F9A0 /* ProfIcon.png */; };
 		393C1EF918ED0B460095F9A0 /* shuffleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 393C1EF818ED0B460095F9A0 /* shuffleIcon.png */; };
@@ -26,19 +24,14 @@
 		393D58CC1871DF2A0035CBD4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393D58CB1871DF2A0035CBD4 /* CoreData.framework */; };
 		393EF4D918483FD600224246 /* heartButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 393EF4D718483FD600224246 /* heartButton.png */; };
 		393EF4DA18483FD600224246 /* xButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 393EF4D818483FD600224246 /* xButton.png */; };
-		397CFE4518EA66F400D3722E /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 397CFE4418EA66F400D3722E /* FXBlurView.m */; };
+		3960625918F0BD0E00944FEB /* CardWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3960625818F0BD0E00944FEB /* CardWebViewController.m */; };
+		3960625C18F0CB1E00944FEB /* CardTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3960625B18F0CB1E00944FEB /* CardTwoViewController.m */; };
+		3960626018F10AD600944FEB /* ProfilesTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3960625F18F10AD600944FEB /* ProfilesTableController.m */; };
+		3960626318F10AF300944FEB /* AddProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3960626218F10AF300944FEB /* AddProfileViewController.m */; };
 		397CFE4818EA676600D3722E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 397CFE4718EA676600D3722E /* SettingsViewController.m */; };
 		39904C3918D7ECA600CE9C59 /* Messenger.m in Sources */ = {isa = PBXBuildFile; fileRef = 39904C3818D7ECA600CE9C59 /* Messenger.m */; };
-		39904C3C18D9522200CE9C59 /* DataTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39904C3B18D9522200CE9C59 /* DataTwoViewController.m */; };
-		39904C3F18D954BE00CE9C59 /* EmbedDataTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39904C3E18D954BE00CE9C59 /* EmbedDataTwoViewController.m */; };
 		39904C4118DE794200CE9C59 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39904C4018DE794200CE9C59 /* SystemConfiguration.framework */; };
-		39A07090184D448F00FD88A5 /* compassIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39A0708F184D448F00FD88A5 /* compassIcon.jpg */; };
-		39A07094184D453B00FD88A5 /* gearIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39A07091184D453B00FD88A5 /* gearIcon.jpg */; };
-		39A07095184D453B00FD88A5 /* heartIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39A07092184D453B00FD88A5 /* heartIcon.jpg */; };
-		39A07096184D453B00FD88A5 /* personIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39A07093184D453B00FD88A5 /* personIcon.jpg */; };
-		39A59A9F18EA71250048E492 /* cog.svg in Resources */ = {isa = PBXBuildFile; fileRef = 39A59A9E18EA71250048E492 /* cog.svg */; };
 		39A59AA118EA71670048E492 /* cog.png in Resources */ = {isa = PBXBuildFile; fileRef = 39A59AA018EA71670048E492 /* cog.png */; };
-		39A59AA318EA73400048E492 /* stack.png in Resources */ = {isa = PBXBuildFile; fileRef = 39A59AA218EA73400048E492 /* stack.png */; };
 		39BFEE16185A97BC004593EE /* JobNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BFEE15185A97BC004593EE /* JobNode.m */; };
 		39BFEE19185A9CA4004593EE /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BFEE18185A9CA4004593EE /* Model.m */; };
 		39BFEE1F185E4B6D004593EE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BFEE1E185E4B6D004593EE /* LoginViewController.m */; };
@@ -52,10 +45,7 @@
 		39C10FCE1845A233007A7982 /* Signika-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39C10FCA1845A233007A7982 /* Signika-Light.otf */; };
 		39C10FCF1845A233007A7982 /* Signika-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39C10FCB1845A233007A7982 /* Signika-Regular.otf */; };
 		39C10FD01845A233007A7982 /* Signika-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39C10FCC1845A233007A7982 /* Signika-Semibold.otf */; };
-		39C24A531845B6DA00926ED9 /* drawerButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 39C24A521845B6DA00926ED9 /* drawerButton.png */; };
 		39C24A591846B51500926ED9 /* CustomRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C24A581846B51500926ED9 /* CustomRect.m */; };
-		39C24A5B184824EF00926ED9 /* infoButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 39C24A5A184824EF00926ED9 /* infoButton.png */; };
-		39C24A5F18482BC300926ED9 /* googleLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 39C24A5E18482BC300926ED9 /* googleLogo.png */; };
 		39C24A611848326A00926ED9 /* Entypo.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39C24A601848326A00926ED9 /* Entypo.otf */; };
 		39C42BD1183804BF000DFA1A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C42BD0183804BF000DFA1A /* Foundation.framework */; };
 		39C42BD3183804BF000DFA1A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C42BD2183804BF000DFA1A /* CoreGraphics.framework */; };
@@ -69,13 +59,12 @@
 		39C42BF5183804BF000DFA1A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C42BD4183804BF000DFA1A /* UIKit.framework */; };
 		39C42BFD183804BF000DFA1A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39C42BFB183804BF000DFA1A /* InfoPlist.strings */; };
 		39C42BFF183804BF000DFA1A /* JobbieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C42BFE183804BF000DFA1A /* JobbieTests.m */; };
-		39C42C1518381ED4000DFA1A /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C42C1018381ED4000DFA1A /* CenterViewController.m */; };
-		39C42C1618381ED4000DFA1A /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C42C1218381ED4000DFA1A /* LeftViewController.m */; };
 		39C42C1718381ED4000DFA1A /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C42C1418381ED4000DFA1A /* MainViewController.m */; };
 		39C42C1B18382076000DFA1A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39C42BE2183804BF000DFA1A /* Main_iPhone.storyboard */; };
-		39E0779418511F2B00DB97D0 /* SecondaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E0779318511F2B00DB97D0 /* SecondaryViewController.m */; };
+		39D4796518F1DD8600ADE2BC /* ProfileTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4796418F1DD8600ADE2BC /* ProfileTableView.m */; };
+		39D4796818F1E19B00ADE2BC /* ProfileCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4796718F1E19B00ADE2BC /* ProfileCellView.m */; };
+		39E409DF18F2177C003F1928 /* x_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E409DE18F2177C003F1928 /* x_icon.png */; };
 		39FDBB7218A7394500BC907F /* EmptySegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FDBB7118A7394500BC907F /* EmptySegue.m */; };
-		39FDBB7618A73D4B00BC907F /* EmbedDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FDBB7518A73D4B00BC907F /* EmbedDataViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,17 +83,14 @@
 		03A45A9418E4E19100047130 /* NavBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavBarViewController.m; path = ViewControllers/NavBarViewController.m; sourceTree = "<group>"; };
 		03FDDE3018E38F0000E5148E /* CardOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardOneViewController.h; path = ViewControllers/CardOneViewController.h; sourceTree = "<group>"; };
 		03FDDE3118E38F0000E5148E /* CardOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardOneViewController.m; path = ViewControllers/CardOneViewController.m; sourceTree = "<group>"; };
-		03FDDE3318E38F0E00E5148E /* CardTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardTwoViewController.h; sourceTree = "<group>"; };
-		03FDDE3418E38F0E00E5148E /* CardTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardTwoViewController.m; sourceTree = "<group>"; };
 		217A62978DDB425FA96DC3A8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3910938E185E517E00056F6A /* loginCheckMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginCheckMark.png; sourceTree = "<group>"; };
 		391093A9185E8BC400056F6A /* ControllerMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControllerMethods.h; path = ViewControllers/ControllerMethods.h; sourceTree = "<group>"; };
 		391093AA185E8BC400056F6A /* ControllerMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControllerMethods.m; path = ViewControllers/ControllerMethods.m; sourceTree = "<group>"; };
-		391093AF186141C600056F6A /* DataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataViewController.h; path = ViewControllers/DataViewController.h; sourceTree = "<group>"; };
-		391093B0186141C600056F6A /* DataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataViewController.m; path = ViewControllers/DataViewController.m; sourceTree = "<group>"; };
-		391093BB1863B81800056F6A /* SecTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecTableViewController.h; path = ViewControllers/SecTableViewController.h; sourceTree = "<group>"; };
-		391093BC1863B81800056F6A /* SecTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecTableViewController.m; path = ViewControllers/SecTableViewController.m; sourceTree = "<group>"; };
-		3930B2E518E3C108001F475F /* duomo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = duomo.png; sourceTree = "<group>"; };
+		3926548A18EF927100D9D3BC /* CardOneMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardOneMainViewController.h; path = ViewControllers/CardOneMainViewController.h; sourceTree = "<group>"; };
+		3926548B18EF927100D9D3BC /* CardOneMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardOneMainViewController.m; path = ViewControllers/CardOneMainViewController.m; sourceTree = "<group>"; };
+		3926548D18EF928000D9D3BC /* CardTwoMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardTwoMainViewController.h; path = ViewControllers/CardTwoMainViewController.h; sourceTree = "<group>"; };
+		3926548E18EF928000D9D3BC /* CardTwoMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardTwoMainViewController.m; path = ViewControllers/CardTwoMainViewController.m; sourceTree = "<group>"; };
 		3930B2E718E9127B001F475F /* JobLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JobLocation.h; path = Model/JobNodeClasses/JobLocation.h; sourceTree = "<group>"; };
 		3930B2E818E9127B001F475F /* JobLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JobLocation.m; path = Model/JobNodeClasses/JobLocation.m; sourceTree = "<group>"; };
 		393C1EF618ED056B0095F9A0 /* ProfIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProfIcon.png; sourceTree = "<group>"; };
@@ -116,8 +102,14 @@
 		393D58CB1871DF2A0035CBD4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		393EF4D718483FD600224246 /* heartButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heartButton.png; sourceTree = "<group>"; };
 		393EF4D818483FD600224246 /* xButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xButton.png; sourceTree = "<group>"; };
-		397CFE4318EA66F400D3722E /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXBlurView.h; path = Views/FXBlurView.h; sourceTree = "<group>"; };
-		397CFE4418EA66F400D3722E /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXBlurView.m; path = Views/FXBlurView.m; sourceTree = "<group>"; };
+		3960625718F0BD0E00944FEB /* CardWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardWebViewController.h; path = ViewControllers/CardWebViewController.h; sourceTree = "<group>"; };
+		3960625818F0BD0E00944FEB /* CardWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardWebViewController.m; path = ViewControllers/CardWebViewController.m; sourceTree = "<group>"; };
+		3960625A18F0CB1E00944FEB /* CardTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardTwoViewController.h; path = ViewControllers/CardTwoViewController.h; sourceTree = "<group>"; };
+		3960625B18F0CB1E00944FEB /* CardTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardTwoViewController.m; path = ViewControllers/CardTwoViewController.m; sourceTree = "<group>"; };
+		3960625E18F10AD600944FEB /* ProfilesTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfilesTableController.h; path = ViewControllers/ProfilesTableController.h; sourceTree = "<group>"; };
+		3960625F18F10AD600944FEB /* ProfilesTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfilesTableController.m; path = ViewControllers/ProfilesTableController.m; sourceTree = "<group>"; };
+		3960626118F10AF300944FEB /* AddProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddProfileViewController.h; path = ViewControllers/AddProfileViewController.h; sourceTree = "<group>"; };
+		3960626218F10AF300944FEB /* AddProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddProfileViewController.m; path = ViewControllers/AddProfileViewController.m; sourceTree = "<group>"; };
 		397CFE4618EA676600D3722E /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = ViewControllers/SettingsViewController.h; sourceTree = "<group>"; };
 		397CFE4718EA676600D3722E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ViewControllers/SettingsViewController.m; sourceTree = "<group>"; };
 		397CFE4A18EA68EE00D3722E /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -126,20 +118,10 @@
 		397CFE5018EA68FC00D3722E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = "Base.lproj/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		39904C3718D7ECA600CE9C59 /* Messenger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Messenger.h; path = Network/Messenger.h; sourceTree = "<group>"; };
 		39904C3818D7ECA600CE9C59 /* Messenger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Messenger.m; path = Network/Messenger.m; sourceTree = "<group>"; };
-		39904C3A18D9522200CE9C59 /* DataTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataTwoViewController.h; path = ViewControllers/DataTwoViewController.h; sourceTree = "<group>"; };
-		39904C3B18D9522200CE9C59 /* DataTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataTwoViewController.m; path = ViewControllers/DataTwoViewController.m; sourceTree = "<group>"; };
-		39904C3D18D954BE00CE9C59 /* EmbedDataTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmbedDataTwoViewController.h; path = ViewControllers/EmbedDataTwoViewController.h; sourceTree = "<group>"; };
-		39904C3E18D954BE00CE9C59 /* EmbedDataTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmbedDataTwoViewController.m; path = ViewControllers/EmbedDataTwoViewController.m; sourceTree = "<group>"; };
 		39904C4018DE794200CE9C59 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		39904C4218DE7A5300CE9C59 /* libPods-Canvas.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Canvas.a"; path = "Pods/build/Debug-iphoneos/libPods-Canvas.a"; sourceTree = "<group>"; };
 		39904C4318DE7A5300CE9C59 /* libPods-Reachability.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Reachability.a"; path = "Pods/build/Debug-iphoneos/libPods-Reachability.a"; sourceTree = "<group>"; };
-		39A0708F184D448F00FD88A5 /* compassIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = compassIcon.jpg; sourceTree = "<group>"; };
-		39A07091184D453B00FD88A5 /* gearIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gearIcon.jpg; sourceTree = "<group>"; };
-		39A07092184D453B00FD88A5 /* heartIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = heartIcon.jpg; sourceTree = "<group>"; };
-		39A07093184D453B00FD88A5 /* personIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = personIcon.jpg; sourceTree = "<group>"; };
-		39A59A9E18EA71250048E492 /* cog.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cog.svg; sourceTree = "<group>"; };
 		39A59AA018EA71670048E492 /* cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog.png; sourceTree = "<group>"; };
-		39A59AA218EA73400048E492 /* stack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stack.png; sourceTree = "<group>"; };
 		39BFEE14185A97BC004593EE /* JobNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JobNode.h; path = Model/JobNode.h; sourceTree = "<group>"; };
 		39BFEE15185A97BC004593EE /* JobNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JobNode.m; path = Model/JobNode.m; sourceTree = "<group>"; };
 		39BFEE17185A9CA4004593EE /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = Model/Model.h; sourceTree = "<group>"; };
@@ -156,11 +138,8 @@
 		39C10FCA1845A233007A7982 /* Signika-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Light.otf"; sourceTree = "<group>"; };
 		39C10FCB1845A233007A7982 /* Signika-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Regular.otf"; sourceTree = "<group>"; };
 		39C10FCC1845A233007A7982 /* Signika-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Semibold.otf"; sourceTree = "<group>"; };
-		39C24A521845B6DA00926ED9 /* drawerButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drawerButton.png; sourceTree = "<group>"; };
 		39C24A571846B51500926ED9 /* CustomRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomRect.h; path = Model/CustomRect.h; sourceTree = "<group>"; };
 		39C24A581846B51500926ED9 /* CustomRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomRect.m; path = Model/CustomRect.m; sourceTree = "<group>"; };
-		39C24A5A184824EF00926ED9 /* infoButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoButton.png; sourceTree = "<group>"; };
-		39C24A5E18482BC300926ED9 /* googleLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = googleLogo.png; sourceTree = "<group>"; };
 		39C24A601848326A00926ED9 /* Entypo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.otf; sourceTree = "<group>"; };
 		39C42BCD183804BF000DFA1A /* Jobbie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jobbie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39C42BD0183804BF000DFA1A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -179,18 +158,15 @@
 		39C42BFA183804BF000DFA1A /* JobbieTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JobbieTests-Info.plist"; sourceTree = "<group>"; };
 		39C42BFC183804BF000DFA1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		39C42BFE183804BF000DFA1A /* JobbieTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobbieTests.m; sourceTree = "<group>"; };
-		39C42C0F18381ED4000DFA1A /* CenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CenterViewController.h; path = ViewControllers/CenterViewController.h; sourceTree = "<group>"; };
-		39C42C1018381ED4000DFA1A /* CenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CenterViewController.m; path = ViewControllers/CenterViewController.m; sourceTree = "<group>"; };
-		39C42C1118381ED4000DFA1A /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftViewController.h; path = ViewControllers/LeftViewController.h; sourceTree = "<group>"; };
-		39C42C1218381ED4000DFA1A /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftViewController.m; path = ViewControllers/LeftViewController.m; sourceTree = "<group>"; };
 		39C42C1318381ED4000DFA1A /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ViewControllers/MainViewController.h; sourceTree = "<group>"; };
 		39C42C1418381ED4000DFA1A /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ViewControllers/MainViewController.m; sourceTree = "<group>"; };
-		39E0779218511F2B00DB97D0 /* SecondaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondaryViewController.h; path = ViewControllers/SecondaryViewController.h; sourceTree = "<group>"; };
-		39E0779318511F2B00DB97D0 /* SecondaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondaryViewController.m; path = ViewControllers/SecondaryViewController.m; sourceTree = "<group>"; };
+		39D4796318F1DD8600ADE2BC /* ProfileTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileTableView.h; path = Views/ProfileTableView.h; sourceTree = "<group>"; };
+		39D4796418F1DD8600ADE2BC /* ProfileTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileTableView.m; path = Views/ProfileTableView.m; sourceTree = "<group>"; };
+		39D4796618F1E19B00ADE2BC /* ProfileCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileCellView.h; path = Views/ProfileCellView.h; sourceTree = "<group>"; };
+		39D4796718F1E19B00ADE2BC /* ProfileCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileCellView.m; path = Views/ProfileCellView.m; sourceTree = "<group>"; };
+		39E409DE18F2177C003F1928 /* x_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x_icon.png; sourceTree = "<group>"; };
 		39FDBB7018A7394500BC907F /* EmptySegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmptySegue.h; path = Segue/EmptySegue.h; sourceTree = "<group>"; };
 		39FDBB7118A7394500BC907F /* EmptySegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmptySegue.m; path = Segue/EmptySegue.m; sourceTree = "<group>"; };
-		39FDBB7418A73D4B00BC907F /* EmbedDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmbedDataViewController.h; path = ViewControllers/EmbedDataViewController.h; sourceTree = "<group>"; };
-		39FDBB7518A73D4B00BC907F /* EmbedDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmbedDataViewController.m; path = ViewControllers/EmbedDataViewController.m; sourceTree = "<group>"; };
 		8A99890A97E046659C19A766 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,32 +197,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		035ABFF318D9FE6400314304 /* MainScreenControllers -archive */ = {
-			isa = PBXGroup;
-			children = (
-				39C42C0F18381ED4000DFA1A /* CenterViewController.h */,
-				39C42C1018381ED4000DFA1A /* CenterViewController.m */,
-				39C42C1118381ED4000DFA1A /* LeftViewController.h */,
-				39C42C1218381ED4000DFA1A /* LeftViewController.m */,
-			);
-			name = "MainScreenControllers -archive";
-			sourceTree = "<group>";
-		};
-		035ABFF418D9FE7C00314304 /* JobCardControllers - Archive */ = {
-			isa = PBXGroup;
-			children = (
-				39904C3D18D954BE00CE9C59 /* EmbedDataTwoViewController.h */,
-				39904C3E18D954BE00CE9C59 /* EmbedDataTwoViewController.m */,
-				391093AF186141C600056F6A /* DataViewController.h */,
-				391093B0186141C600056F6A /* DataViewController.m */,
-				39904C3A18D9522200CE9C59 /* DataTwoViewController.h */,
-				39904C3B18D9522200CE9C59 /* DataTwoViewController.m */,
-				39FDBB7418A73D4B00BC907F /* EmbedDataViewController.h */,
-				39FDBB7518A73D4B00BC907F /* EmbedDataViewController.m */,
-			);
-			name = "JobCardControllers - Archive";
-			sourceTree = "<group>";
-		};
 		035ABFF518DA0BB300314304 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,26 +215,15 @@
 			name = MainNavBar;
 			sourceTree = "<group>";
 		};
-		03FDDE2E18E38EBA00E5148E /* More Archive */ = {
-			isa = PBXGroup;
-			children = (
-				39E0779218511F2B00DB97D0 /* SecondaryViewController.h */,
-				39E0779318511F2B00DB97D0 /* SecondaryViewController.m */,
-				391093BB1863B81800056F6A /* SecTableViewController.h */,
-				391093BC1863B81800056F6A /* SecTableViewController.m */,
-			);
-			name = "More Archive";
-			sourceTree = "<group>";
-		};
 		03FDDE2F18E38ED800E5148E /* MainCardController */ = {
 			isa = PBXGroup;
 			children = (
-				03FDDE3018E38F0000E5148E /* CardOneViewController.h */,
-				03FDDE3118E38F0000E5148E /* CardOneViewController.m */,
-				03FDDE3318E38F0E00E5148E /* CardTwoViewController.h */,
-				03FDDE3418E38F0E00E5148E /* CardTwoViewController.m */,
+				3926549118EF946C00D9D3BC /* CardTwo */,
+				3926549018EF945D00D9D3BC /* CardOne */,
 				39C42C1318381ED4000DFA1A /* MainViewController.h */,
 				39C42C1418381ED4000DFA1A /* MainViewController.m */,
+				3960625718F0BD0E00944FEB /* CardWebViewController.h */,
+				3960625818F0BD0E00944FEB /* CardWebViewController.m */,
 			);
 			name = MainCardController;
 			sourceTree = "<group>";
@@ -296,6 +235,39 @@
 				39904C3818D7ECA600CE9C59 /* Messenger.m */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		3926549018EF945D00D9D3BC /* CardOne */ = {
+			isa = PBXGroup;
+			children = (
+				03FDDE3018E38F0000E5148E /* CardOneViewController.h */,
+				03FDDE3118E38F0000E5148E /* CardOneViewController.m */,
+				3926548A18EF927100D9D3BC /* CardOneMainViewController.h */,
+				3926548B18EF927100D9D3BC /* CardOneMainViewController.m */,
+			);
+			name = CardOne;
+			sourceTree = "<group>";
+		};
+		3926549118EF946C00D9D3BC /* CardTwo */ = {
+			isa = PBXGroup;
+			children = (
+				3960625A18F0CB1E00944FEB /* CardTwoViewController.h */,
+				3960625B18F0CB1E00944FEB /* CardTwoViewController.m */,
+				3926548D18EF928000D9D3BC /* CardTwoMainViewController.h */,
+				3926548E18EF928000D9D3BC /* CardTwoMainViewController.m */,
+			);
+			name = CardTwo;
+			sourceTree = "<group>";
+		};
+		3960625D18F10AB300944FEB /* Profiles */ = {
+			isa = PBXGroup;
+			children = (
+				3960625E18F10AD600944FEB /* ProfilesTableController.h */,
+				3960625F18F10AD600944FEB /* ProfilesTableController.m */,
+				3960626118F10AF300944FEB /* AddProfileViewController.h */,
+				3960626218F10AF300944FEB /* AddProfileViewController.m */,
+			);
+			name = Profiles;
 			sourceTree = "<group>";
 		};
 		397CFE4918EA676C00D3722E /* Settings */ = {
@@ -310,13 +282,11 @@
 		39BFEE11185A9749004593EE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3960625D18F10AB300944FEB /* Profiles */,
 				397CFE4918EA676C00D3722E /* Settings */,
 				03A45A9218E4E16F00047130 /* MainNavBar */,
 				03FDDE2F18E38ED800E5148E /* MainCardController */,
-				03FDDE2E18E38EBA00E5148E /* More Archive */,
 				035ABFF518DA0BB300314304 /* Login */,
-				035ABFF418D9FE7C00314304 /* JobCardControllers - Archive */,
-				035ABFF318D9FE6400314304 /* MainScreenControllers -archive */,
 				391093A9185E8BC400056F6A /* ControllerMethods.h */,
 				391093AA185E8BC400056F6A /* ControllerMethods.m */,
 			);
@@ -326,8 +296,10 @@
 		39BFEE12185A976E004593EE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				397CFE4318EA66F400D3722E /* FXBlurView.h */,
-				397CFE4418EA66F400D3722E /* FXBlurView.m */,
+				39D4796318F1DD8600ADE2BC /* ProfileTableView.h */,
+				39D4796418F1DD8600ADE2BC /* ProfileTableView.m */,
+				39D4796618F1E19B00ADE2BC /* ProfileCellView.h */,
+				39D4796718F1E19B00ADE2BC /* ProfileCellView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -374,24 +346,15 @@
 		39C24A511845B6DA00926ED9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				39E409DE18F2177C003F1928 /* x_icon.png */,
 				393C1EFD18EE71C40095F9A0 /* iconTransparent.png */,
 				393C1EF818ED0B460095F9A0 /* shuffleIcon.png */,
 				393C1EF618ED056B0095F9A0 /* ProfIcon.png */,
-				39A59AA218EA73400048E492 /* stack.png */,
-				39A59A9E18EA71250048E492 /* cog.svg */,
 				39A59AA018EA71670048E492 /* cog.png */,
-				3930B2E518E3C108001F475F /* duomo.png */,
 				3910938E185E517E00056F6A /* loginCheckMark.png */,
-				39A07091184D453B00FD88A5 /* gearIcon.jpg */,
-				39A07092184D453B00FD88A5 /* heartIcon.jpg */,
-				39A07093184D453B00FD88A5 /* personIcon.jpg */,
-				39A0708F184D448F00FD88A5 /* compassIcon.jpg */,
 				035ABFF118D9F3A700314304 /* icon.png */,
 				393EF4D718483FD600224246 /* heartButton.png */,
 				393EF4D818483FD600224246 /* xButton.png */,
-				39C24A5E18482BC300926ED9 /* googleLogo.png */,
-				39C24A5A184824EF00926ED9 /* infoButton.png */,
-				39C24A521845B6DA00926ED9 /* drawerButton.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -580,37 +543,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39A07094184D453B00FD88A5 /* gearIcon.jpg in Resources */,
 				393C1EFE18EE71C40095F9A0 /* iconTransparent.png in Resources */,
 				39C24A611848326A00926ED9 /* Entypo.otf in Resources */,
 				39C42C1B18382076000DFA1A /* Main_iPhone.storyboard in Resources */,
 				393EF4D918483FD600224246 /* heartButton.png in Resources */,
-				3930B2E618E3C108001F475F /* duomo.png in Resources */,
-				39A59A9F18EA71250048E492 /* cog.svg in Resources */,
 				39C10FD01845A233007A7982 /* Signika-Semibold.otf in Resources */,
-				39C24A5B184824EF00926ED9 /* infoButton.png in Resources */,
 				39BFEE29185E4C6E004593EE /* Quicksand-Light.otf in Resources */,
-				39A59AA318EA73400048E492 /* stack.png in Resources */,
 				39BFEE26185E4C6E004593EE /* Quicksand-Bold.otf in Resources */,
 				39BFEE27185E4C6E004593EE /* Quicksand-BoldItalic.otf in Resources */,
 				39C10FCE1845A233007A7982 /* Signika-Light.otf in Resources */,
 				39C42BEC183804BF000DFA1A /* Images.xcassets in Resources */,
 				39BFEE2B185E4C6E004593EE /* Quicksand-Regular.otf in Resources */,
+				39E409DF18F2177C003F1928 /* x_icon.png in Resources */,
 				39C42BDB183804BF000DFA1A /* InfoPlist.strings in Resources */,
 				39BFEE2A185E4C6E004593EE /* Quicksand-LightItalic.otf in Resources */,
-				39A07095184D453B00FD88A5 /* heartIcon.jpg in Resources */,
-				39C24A5F18482BC300926ED9 /* googleLogo.png in Resources */,
 				39BFEE28185E4C6E004593EE /* Quicksand-Italic.otf in Resources */,
 				393EF4DA18483FD600224246 /* xButton.png in Resources */,
 				39C10FCF1845A233007A7982 /* Signika-Regular.otf in Resources */,
-				39A07096184D453B00FD88A5 /* personIcon.jpg in Resources */,
 				393C1EF918ED0B460095F9A0 /* shuffleIcon.png in Resources */,
 				393C1EF718ED056B0095F9A0 /* ProfIcon.png in Resources */,
 				39C10FCD1845A233007A7982 /* Signika-Bold.otf in Resources */,
 				035ABFF218D9F3A700314304 /* icon.png in Resources */,
 				39A59AA118EA71670048E492 /* cog.png in Resources */,
-				39C24A531845B6DA00926ED9 /* drawerButton.png in Resources */,
-				39A07090184D448F00FD88A5 /* compassIcon.jpg in Resources */,
 				3910938F185E517E00056F6A /* loginCheckMark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -676,31 +630,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39D4796818F1E19B00ADE2BC /* ProfileCellView.m in Sources */,
+				3960626318F10AF300944FEB /* AddProfileViewController.m in Sources */,
 				39BFEE19185A9CA4004593EE /* Model.m in Sources */,
-				39904C3F18D954BE00CE9C59 /* EmbedDataTwoViewController.m in Sources */,
 				39BFEE16185A97BC004593EE /* JobNode.m in Sources */,
-				03FDDE3518E38F0E00E5148E /* CardTwoViewController.m in Sources */,
 				39BFEE1F185E4B6D004593EE /* LoginViewController.m in Sources */,
-				397CFE4518EA66F400D3722E /* FXBlurView.m in Sources */,
 				3930B2E918E9127B001F475F /* JobLocation.m in Sources */,
 				39FDBB7218A7394500BC907F /* EmptySegue.m in Sources */,
 				03FDDE3218E38F0000E5148E /* CardOneViewController.m in Sources */,
 				39C42C1718381ED4000DFA1A /* MainViewController.m in Sources */,
 				03A45A9518E4E19100047130 /* NavBarViewController.m in Sources */,
-				391093B1186141C600056F6A /* DataViewController.m in Sources */,
-				391093BD1863B81800056F6A /* SecTableViewController.m in Sources */,
-				39FDBB7618A73D4B00BC907F /* EmbedDataViewController.m in Sources */,
 				393D58CA1871DC7D0035CBD4 /* Model.xcdatamodeld in Sources */,
+				3960625918F0BD0E00944FEB /* CardWebViewController.m in Sources */,
 				39C42BE1183804BF000DFA1A /* AppDelegate.m in Sources */,
+				39D4796518F1DD8600ADE2BC /* ProfileTableView.m in Sources */,
 				39C24A591846B51500926ED9 /* CustomRect.m in Sources */,
-				39C42C1618381ED4000DFA1A /* LeftViewController.m in Sources */,
+				3926548F18EF928000D9D3BC /* CardTwoMainViewController.m in Sources */,
+				3960626018F10AD600944FEB /* ProfilesTableController.m in Sources */,
 				39C42BDD183804BF000DFA1A /* main.m in Sources */,
-				39E0779418511F2B00DB97D0 /* SecondaryViewController.m in Sources */,
-				39C42C1518381ED4000DFA1A /* CenterViewController.m in Sources */,
-				39904C3C18D9522200CE9C59 /* DataTwoViewController.m in Sources */,
 				397CFE4818EA676600D3722E /* SettingsViewController.m in Sources */,
 				393C1EFC18EE69B70095F9A0 /* SearchProfile.m in Sources */,
 				391093AB185E8BC400056F6A /* ControllerMethods.m in Sources */,
+				3960625C18F0CB1E00944FEB /* CardTwoViewController.m in Sources */,
+				3926548C18EF927100D9D3BC /* CardOneMainViewController.m in Sources */,
 				39904C3918D7ECA600CE9C59 /* Messenger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

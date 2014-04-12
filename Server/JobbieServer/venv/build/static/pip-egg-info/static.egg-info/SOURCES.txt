@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+entrypoints.conf
+requirements.txt
+setup.cfg
+pip-egg-info/static.egg-info/PKG-INFO
+pip-egg-info/static.egg-info/SOURCES.txt
+pip-egg-info/static.egg-info/dependency_links.txt
+pip-egg-info/static.egg-info/entry_points.txt
+pip-egg-info/static.egg-info/requires.txt
+pip-egg-info/static.egg-info/top_level.txt
+static/VERSION
+static/__init__.py
+static/apps.py
+static/cli.py

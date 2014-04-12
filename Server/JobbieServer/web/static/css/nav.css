@@ -1,0 +1,35 @@
+/*
+CSS styles for the nav bar
+Created April 12, 2014
+*/
+
+.nav_bar {
+	padding: 5px 0;
+	background-color: black;
+	width: 100%;
+}
+
+.nav_menu {
+	display: inline;
+	position: relative;
+	bottom: 5px;
+	left: 10px;
+}
+
+.nav_item {
+	display:inline;
+	margin-right: 20px;
+	font-family: OpenSans, sans-serif;
+	font-size: 20px;
+	color: white;
+}
+
+.nav_title {
+	margin: 0 10px;
+	font-size: 45px;
+}
+
+.nav_btn > a{
+	color: white;
+	text-decoration: none;
+}

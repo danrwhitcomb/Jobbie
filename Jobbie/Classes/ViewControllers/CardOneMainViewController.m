@@ -10,6 +10,7 @@
 #import "CardOneViewController.h"
 #import "Model.h"
 #import "JobNode.h"
+#import "JobLocation.h"
 
 @interface CardOneMainViewController ()
 
@@ -56,6 +57,7 @@
     [self.lblJobCompany setText:job.jobCompany];
     [self.lblJobDate setText:job.jobDate];
     [self.txtJobDescription setText:job.jobDescription];
+    [self.lblJobLocation setText:[job.jobLocation buildLocationString]];
 }
 
 @end

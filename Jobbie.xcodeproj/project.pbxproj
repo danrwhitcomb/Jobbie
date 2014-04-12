@@ -20,7 +20,6 @@
 		393C1EF918ED0B460095F9A0 /* shuffleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 393C1EF818ED0B460095F9A0 /* shuffleIcon.png */; };
 		393C1EFC18EE69B70095F9A0 /* SearchProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 393C1EFB18EE69B70095F9A0 /* SearchProfile.m */; };
 		393C1EFE18EE71C40095F9A0 /* iconTransparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 393C1EFD18EE71C40095F9A0 /* iconTransparent.png */; };
-		393D58CA1871DC7D0035CBD4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 393D58C81871DC7D0035CBD4 /* Model.xcdatamodeld */; };
 		393D58CC1871DF2A0035CBD4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393D58CB1871DF2A0035CBD4 /* CoreData.framework */; };
 		393EF4D918483FD600224246 /* heartButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 393EF4D718483FD600224246 /* heartButton.png */; };
 		393EF4DA18483FD600224246 /* xButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 393EF4D818483FD600224246 /* xButton.png */; };
@@ -64,6 +63,13 @@
 		39D4796518F1DD8600ADE2BC /* ProfileTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4796418F1DD8600ADE2BC /* ProfileTableView.m */; };
 		39D4796818F1E19B00ADE2BC /* ProfileCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4796718F1E19B00ADE2BC /* ProfileCellView.m */; };
 		39E409DF18F2177C003F1928 /* x_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E409DE18F2177C003F1928 /* x_icon.png */; };
+		39E409E118F23273003F1928 /* infoButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E409E018F23273003F1928 /* infoButton.png */; };
+		39E409E418F38B0A003F1928 /* MatchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E409E318F38B0A003F1928 /* MatchTableViewController.m */; };
+		39E409E818F38CA6003F1928 /* ProfileSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E409E718F38CA6003F1928 /* ProfileSelectorViewController.m */; };
+		39E409EB18F38CE7003F1928 /* JobHighlightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E409EA18F38CE7003F1928 /* JobHighlightViewController.m */; };
+		39E409EE18F38D3D003F1928 /* JobHighlightWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E409ED18F38D3D003F1928 /* JobHighlightWebViewController.m */; };
+		39E409F118F39288003F1928 /* JobCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E409F018F39288003F1928 /* JobCell.m */; };
+		39E409F718F63967003F1928 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39E409F518F63967003F1928 /* Model.xcdatamodeld */; };
 		39FDBB7218A7394500BC907F /* EmptySegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FDBB7118A7394500BC907F /* EmptySegue.m */; };
 /* End PBXBuildFile section */
 
@@ -98,7 +104,6 @@
 		393C1EFA18EE69B70095F9A0 /* SearchProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchProfile.h; path = Model/SearchProfile.h; sourceTree = "<group>"; };
 		393C1EFB18EE69B70095F9A0 /* SearchProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchProfile.m; path = Model/SearchProfile.m; sourceTree = "<group>"; };
 		393C1EFD18EE71C40095F9A0 /* iconTransparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconTransparent.png; sourceTree = "<group>"; };
-		393D58C91871DC7D0035CBD4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		393D58CB1871DF2A0035CBD4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		393EF4D718483FD600224246 /* heartButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heartButton.png; sourceTree = "<group>"; };
 		393EF4D818483FD600224246 /* xButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xButton.png; sourceTree = "<group>"; };
@@ -165,6 +170,18 @@
 		39D4796618F1E19B00ADE2BC /* ProfileCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileCellView.h; path = Views/ProfileCellView.h; sourceTree = "<group>"; };
 		39D4796718F1E19B00ADE2BC /* ProfileCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileCellView.m; path = Views/ProfileCellView.m; sourceTree = "<group>"; };
 		39E409DE18F2177C003F1928 /* x_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x_icon.png; sourceTree = "<group>"; };
+		39E409E018F23273003F1928 /* infoButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoButton.png; sourceTree = "<group>"; };
+		39E409E218F38B0A003F1928 /* MatchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MatchTableViewController.h; path = ViewControllers/MatchTableViewController.h; sourceTree = "<group>"; };
+		39E409E318F38B0A003F1928 /* MatchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MatchTableViewController.m; path = ViewControllers/MatchTableViewController.m; sourceTree = "<group>"; };
+		39E409E618F38CA6003F1928 /* ProfileSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileSelectorViewController.h; path = ViewControllers/ProfileSelectorViewController.h; sourceTree = "<group>"; };
+		39E409E718F38CA6003F1928 /* ProfileSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileSelectorViewController.m; path = ViewControllers/ProfileSelectorViewController.m; sourceTree = "<group>"; };
+		39E409E918F38CE7003F1928 /* JobHighlightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JobHighlightViewController.h; path = ViewControllers/JobHighlightViewController.h; sourceTree = "<group>"; };
+		39E409EA18F38CE7003F1928 /* JobHighlightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JobHighlightViewController.m; path = ViewControllers/JobHighlightViewController.m; sourceTree = "<group>"; };
+		39E409EC18F38D3D003F1928 /* JobHighlightWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JobHighlightWebViewController.h; path = ViewControllers/JobHighlightWebViewController.h; sourceTree = "<group>"; };
+		39E409ED18F38D3D003F1928 /* JobHighlightWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JobHighlightWebViewController.m; path = ViewControllers/JobHighlightWebViewController.m; sourceTree = "<group>"; };
+		39E409EF18F39288003F1928 /* JobCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JobCell.h; path = Views/JobCell.h; sourceTree = "<group>"; };
+		39E409F018F39288003F1928 /* JobCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JobCell.m; path = Views/JobCell.m; sourceTree = "<group>"; };
+		39E409F618F63967003F1928 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		39FDBB7018A7394500BC907F /* EmptySegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmptySegue.h; path = Segue/EmptySegue.h; sourceTree = "<group>"; };
 		39FDBB7118A7394500BC907F /* EmptySegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmptySegue.m; path = Segue/EmptySegue.m; sourceTree = "<group>"; };
 		8A99890A97E046659C19A766 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -282,6 +299,7 @@
 		39BFEE11185A9749004593EE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				39E409E518F38B10003F1928 /* Match List */,
 				3960625D18F10AB300944FEB /* Profiles */,
 				397CFE4918EA676C00D3722E /* Settings */,
 				03A45A9218E4E16F00047130 /* MainNavBar */,
@@ -300,6 +318,8 @@
 				39D4796418F1DD8600ADE2BC /* ProfileTableView.m */,
 				39D4796618F1E19B00ADE2BC /* ProfileCellView.h */,
 				39D4796718F1E19B00ADE2BC /* ProfileCellView.m */,
+				39E409EF18F39288003F1928 /* JobCell.h */,
+				39E409F018F39288003F1928 /* JobCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -312,6 +332,7 @@
 				39BFEE14185A97BC004593EE /* JobNode.h */,
 				39BFEE15185A97BC004593EE /* JobNode.m */,
 				39BFEE17185A9CA4004593EE /* Model.h */,
+				39E409F518F63967003F1928 /* Model.xcdatamodeld */,
 				39BFEE18185A9CA4004593EE /* Model.m */,
 				3930B2E718E9127B001F475F /* JobLocation.h */,
 				3930B2E818E9127B001F475F /* JobLocation.m */,
@@ -346,6 +367,7 @@
 		39C24A511845B6DA00926ED9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				39E409E018F23273003F1928 /* infoButton.png */,
 				39E409DE18F2177C003F1928 /* x_icon.png */,
 				393C1EFD18EE71C40095F9A0 /* iconTransparent.png */,
 				393C1EF818ED0B460095F9A0 /* shuffleIcon.png */,
@@ -398,7 +420,6 @@
 		39C42BD6183804BF000DFA1A /* Jobbie */ = {
 			isa = PBXGroup;
 			children = (
-				393D58C81871DC7D0035CBD4 /* Model.xcdatamodeld */,
 				39C24A511845B6DA00926ED9 /* images */,
 				39C42BDF183804BF000DFA1A /* AppDelegate.h */,
 				39C42BE0183804BF000DFA1A /* AppDelegate.m */,
@@ -450,6 +471,21 @@
 				39BFEE11185A9749004593EE /* Controllers */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		39E409E518F38B10003F1928 /* Match List */ = {
+			isa = PBXGroup;
+			children = (
+				39E409E218F38B0A003F1928 /* MatchTableViewController.h */,
+				39E409E318F38B0A003F1928 /* MatchTableViewController.m */,
+				39E409E618F38CA6003F1928 /* ProfileSelectorViewController.h */,
+				39E409E718F38CA6003F1928 /* ProfileSelectorViewController.m */,
+				39E409E918F38CE7003F1928 /* JobHighlightViewController.h */,
+				39E409EA18F38CE7003F1928 /* JobHighlightViewController.m */,
+				39E409EC18F38D3D003F1928 /* JobHighlightWebViewController.h */,
+				39E409ED18F38D3D003F1928 /* JobHighlightWebViewController.m */,
+			);
+			name = "Match List";
 			sourceTree = "<group>";
 		};
 		39FDBB7318A7394E00BC907F /* Segues */ = {
@@ -560,6 +596,7 @@
 				39BFEE28185E4C6E004593EE /* Quicksand-Italic.otf in Resources */,
 				393EF4DA18483FD600224246 /* xButton.png in Resources */,
 				39C10FCF1845A233007A7982 /* Signika-Regular.otf in Resources */,
+				39E409E118F23273003F1928 /* infoButton.png in Resources */,
 				393C1EF918ED0B460095F9A0 /* shuffleIcon.png in Resources */,
 				393C1EF718ED056B0095F9A0 /* ProfIcon.png in Resources */,
 				39C10FCD1845A233007A7982 /* Signika-Bold.otf in Resources */,
@@ -634,18 +671,20 @@
 				3960626318F10AF300944FEB /* AddProfileViewController.m in Sources */,
 				39BFEE19185A9CA4004593EE /* Model.m in Sources */,
 				39BFEE16185A97BC004593EE /* JobNode.m in Sources */,
+				39E409E418F38B0A003F1928 /* MatchTableViewController.m in Sources */,
 				39BFEE1F185E4B6D004593EE /* LoginViewController.m in Sources */,
+				39E409EE18F38D3D003F1928 /* JobHighlightWebViewController.m in Sources */,
 				3930B2E918E9127B001F475F /* JobLocation.m in Sources */,
 				39FDBB7218A7394500BC907F /* EmptySegue.m in Sources */,
 				03FDDE3218E38F0000E5148E /* CardOneViewController.m in Sources */,
 				39C42C1718381ED4000DFA1A /* MainViewController.m in Sources */,
 				03A45A9518E4E19100047130 /* NavBarViewController.m in Sources */,
-				393D58CA1871DC7D0035CBD4 /* Model.xcdatamodeld in Sources */,
 				3960625918F0BD0E00944FEB /* CardWebViewController.m in Sources */,
 				39C42BE1183804BF000DFA1A /* AppDelegate.m in Sources */,
 				39D4796518F1DD8600ADE2BC /* ProfileTableView.m in Sources */,
 				39C24A591846B51500926ED9 /* CustomRect.m in Sources */,
 				3926548F18EF928000D9D3BC /* CardTwoMainViewController.m in Sources */,
+				39E409E818F38CA6003F1928 /* ProfileSelectorViewController.m in Sources */,
 				3960626018F10AD600944FEB /* ProfilesTableController.m in Sources */,
 				39C42BDD183804BF000DFA1A /* main.m in Sources */,
 				397CFE4818EA676600D3722E /* SettingsViewController.m in Sources */,
@@ -653,7 +692,10 @@
 				391093AB185E8BC400056F6A /* ControllerMethods.m in Sources */,
 				3960625C18F0CB1E00944FEB /* CardTwoViewController.m in Sources */,
 				3926548C18EF927100D9D3BC /* CardOneMainViewController.m in Sources */,
+				39E409EB18F38CE7003F1928 /* JobHighlightViewController.m in Sources */,
+				39E409F118F39288003F1928 /* JobCell.m in Sources */,
 				39904C3918D7ECA600CE9C59 /* Messenger.m in Sources */,
+				39E409F718F63967003F1928 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -924,13 +966,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		393D58C81871DC7D0035CBD4 /* Model.xcdatamodeld */ = {
+		39E409F518F63967003F1928 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				393D58C91871DC7D0035CBD4 /* Model.xcdatamodel */,
+				39E409F618F63967003F1928 /* Model.xcdatamodel */,
 			);
-			currentVersion = 393D58C91871DC7D0035CBD4 /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
+			currentVersion = 39E409F618F63967003F1928 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = Model/Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

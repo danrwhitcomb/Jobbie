@@ -139,7 +139,7 @@
 {
     if([self.textName.text isEqual: @""]){return NO;}
     if([self.textType.text isEqual: @""]){return NO;}
-    if([self.textLocation.text isEqual:@""]){return NO;}
+    if([self.textLocation.text isEqual: @""]){return NO;}
     
     return YES;
 }

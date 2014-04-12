@@ -11,10 +11,9 @@
 @interface JobLocation : UIViewController
 
 @property NSString* city;
-@property NSString* stateAbrv;
 @property NSString* postalCode;
-@property NSString* county;
-@property NSString* region;
 @property NSString* country;
+
+-(NSString*) buildLocationString;
 
 @end

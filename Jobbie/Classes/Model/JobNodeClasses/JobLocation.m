@@ -15,4 +15,20 @@
     return self;
 }
 
+-(NSString*) buildLocationString
+{
+    NSString* location = @"";
+    if(![self.city isEqual:@""]){
+        location = [location stringByAppendingString:self.city];
+        
+    }
+    
+    if(![self.country isEqual:@""]){
+        location = [location stringByAppendingString:self.country];
+    }
+    
+    
+    return location;
+}
+
 @end

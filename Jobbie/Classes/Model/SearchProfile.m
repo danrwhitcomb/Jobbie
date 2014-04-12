@@ -34,24 +34,28 @@
     baseURL = [baseURL stringByAppendingString:apiKey];
     baseURL = [baseURL stringByAppendingString:searchKey];
     baseURL = [baseURL stringByAppendingString:@"&orig_ip=127.0.0.1"];
+    
     NSString* keywords = [@"&keyword=" stringByAppendingString:self.jobType];
     baseURL = [baseURL stringByAppendingString:keywords];
     
-    if(self.location != nil){
+    if(![self.location isEqual: @""]){
         NSString* location = [@"&location=" stringByAppendingString:self.location];
         baseURL = [baseURL stringByAppendingString:location];
     }
     
-    if(self.company != nil){
+    if(![self.company isEqual: @""]){
         NSString* company = [@"&company=" stringByAppendingString:self.company];
         baseURL = [baseURL stringByAppendingString:company];
     }
     
-    if(self.radius != nil){
+    if(![self.radius isEqual:@""]){
         NSString* radius = [@"&distance=" stringByAppendingString:self.radius];
         baseURL = [baseURL stringByAppendingString:radius];
     }
     
+    baseURL = [baseURL stringByAppendingString:@"&desc_length=600&per_page=60"];
+    
+     baseURL = [baseURL stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     
     return baseURL;
 }

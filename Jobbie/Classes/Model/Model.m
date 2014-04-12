@@ -100,7 +100,9 @@
             jobNode.jobCompany = [job objectForKey:@"job_company"];
             jobNode.jobTag = [job objectForKey:@"job_tag"];
             jobNode.jobDate = [job objectForKey:@"job_date_added"];
-            jobNode.jobDescription = [job objectForKey:@"job_description"];
+            
+        
+            jobNode.jobDescription = [self flattenHTML:[job objectForKey:@"job_description"]];
             
             JobLocation* location = [JobLocation new];
             location.country = [job objectForKey:@"job_country"];
@@ -112,6 +114,10 @@
 
         }
         
+        for(JobNode* job in self.jobList){
+            [self.opportunityList addObject:job];
+        }
+        
         return YES;
         
     } else {
@@ -120,6 +126,27 @@
         
     }
 }
+
+- (NSString *)flattenHTML:(NSString *)html {
+    
+    NSScanner *theScanner;
+    NSString *text = nil;
+    theScanner = [NSScanner scannerWithString:html];
+    
+    while ([theScanner isAtEnd] == NO) {
+        
+        [theScanner scanUpToString:@"<" intoString:NULL] ;
+        
+        [theScanner scanUpToString:@">" intoString:&text] ;
+        
+        html = [html stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@>", text] withString:@""];
+    }
+    //
+    html = [html stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    return html;
+}
+
 
 -(void)resetModel
 {
@@ -146,6 +173,7 @@
 -(SearchProfile*)addProfile:(SearchProfile*)prof
 {
     [self.searchProfiles addObject:prof];
+    self.currentProfile = prof;
     return prof;
 }
 

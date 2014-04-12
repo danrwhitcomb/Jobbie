@@ -1,0 +1,49 @@
++-----------------------------------------------------+
+			JOBBIE - SERVER DESIGN SPEC
++-----------------------------------------------------+
+
+Copyright Jobbie 2014
+Contributors: Daniel Whitcomb
+Last Updated: Dec 11, 2014
+
+The server's primary role is collection, organization, and distribution
+of user and job data. 
+
++-------------------Requirements-------------------+
+In no particular order
+1. Collect job data from multiple sources using APIs
+2. Distribute data into server database 
+3. Respond to user application requests 
+	a. Handle user accounts
+	b. Handle job information 
+4. Return data based on user's profile
+
+
++-------------------Data Flow-----------------------+
+----Retrieving Data----
+1. On a regular time interval, the server makes data requests to various
+job boards
+2. As data is received by each job board, the data is parsed, and stored into
+a SQLite Database
+3. As each piece of data gets parsed out of the job APIs, it is checked against the 
+current database to make sure it isnt already present (hopefully the APIs will 
+allow the request of postings within a time period)
+
+---Upon User Profile/Account Request---
+1. User account credentials are received from application
+2. Account info is cross checked with database
+	- If match, continue
+	- If not, send message to application with denial message
+3. User account info is loaded into SQLite message
+4. Data is sent to application
+
+---Upon Data Retrieval Request----
+1. Job retrieval request is received from application
+2. Relevant jobs are retrieved from the database
+3. Jobs retrieved are cross checked with user account settings
+4. Doubles, matched, and x-ed jobs are parsed out
+5. Job data is wrapped into SQLite message
+6. Message is sent to Application
+
++---------------------Notes------------------------+
+- Intentionally written vaguely because design is currently in flux(Dec 11, 2013)

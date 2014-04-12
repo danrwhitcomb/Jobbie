@@ -1,0 +1,62 @@
+
+------------
+Failed to validate valid instance line 132
+Type integer doesn't allow value '9999999999999999999999999999999'
+Error validating datatype integer
+Element doc failed to validate content
+
+------------
+Failed to validate valid instance line 3799
+Error validating value QName
+Element doc failed to validate content
+
+------------
+Failed to validate valid instance line 3958
+Type NOTATION doesn't allow value 'foo'
+Error validating datatype NOTATION
+Element doc failed to validate content
+
+------------
+Failed to validate valid instance line 3961
+Type NOTATION doesn't allow value 'x:foo'
+Error validating datatype NOTATION
+Element doc failed to validate content
+
+------------
+Failed to validate valid instance line 3996
+Type decimal doesn't allow value '99999999999999999999999999999999999999999999999999999999999999999'
+Error validating datatype decimal
+Element doc failed to validate content
+
+------------
+Failed to validate valid instance line 3999
+Type decimal doesn't allow value '-99999999999999999999999999999999999999999999999999999999999999999'
+Error validating datatype decimal
+Element doc failed to validate content
+
+------------
+Failed to validate valid instance line 4402
+Type unsignedLong doesn't allow value '+1'
+Error validating datatype unsignedLong
+Element doc failed to validate content
+
+------------
+Failed to validate valid instance line 4434
+Type unsignedInt doesn't allow value '+1'
+Error validating datatype unsignedInt
+Element doc failed to validate content
+
+------------
+Failed to validate valid instance line 4463
+Type unsignedShort doesn't allow value '+1'
+Error validating datatype unsignedShort
+Element doc failed to validate content
+
+------------
+Failed to validate valid instance line 4492
+Type unsignedByte doesn't allow value '+1'
+Error validating datatype unsignedByte
+Element doc failed to validate content
+
+------------
+Failed to detect incorect RNG line 616

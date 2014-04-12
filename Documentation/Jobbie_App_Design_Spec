@@ -1,0 +1,51 @@
++-----------------------------------------------+
+		JOBBIE - APPLICATION DESIGN SPEC
++-----------------------------------------------+
+
+Copyright Jobbie 2014
+Contributors: Daniel Whitcomb
+Last Updated: Dec 11, 2014
+
+The primary role of the application side of the Jobbie system
+is to act as an interface and shell between the user and data.
+Very little processing (apart from messages, user interaction, and graphics)
+should be done be the application, most data processing is handled by the server
+
+
++-----------------Requirements-----------------+
+In no particular order
+
+1. Process user interaction
+2. Send and receive data requests to the server
+3. Display data 
+4. Handle customized user accounts
+
+
++------------------Data Flow-------------------+
+---Upon Login---
+1. A connection is made to the server
+2. Request for user account profile is sent
+3. A thread separate from the primary thread handles retrieving the user info
+4. User info is received and delegated into its correct places
+(settings, profile, etc)
+5. Job info is loaded and parsed to match previous state.
+
+
+---Upon match selection---
+1. Current job info is moved into the match datastructure
+2. Job info is removed from opportunities data structure
+3. Information on center view is ticked forward one place
+
+---Upon x selection---
+1. Data is removed from opportunity data structure
+
+---Upon Data Reset---
+1. Full data set is requested from the server be the application
+2. All data structures are reset within the application
+3. Data is parsed and delegated to correct data structure
+
+
++---------------------Notes---------------------+
+- See implementation spec for details on data structures 
+- It may be possible to use machine learning algorithms to further tailor
+results after initial data retrieval.

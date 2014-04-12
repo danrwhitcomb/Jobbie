@@ -1,0 +1,54 @@
++------------------------------------------------------------+
+				JOBBIE - OVERALL DESIGN SPEC 
++------------------------------------------------------------+
+
+Copyright Jobbie 2014
+Contributers: Daniel Whitcomb
+Last Updated: Dec 10, 2013
+
+
+The Jobbie system relies on simple movement of job posting information
+to the user. The most important aspect of the application is getting the 
+data from the source (existing job boards) to the application and effectively the user. 
+
+
++-----------------------REQUIREMENTS-------------------------+
+In no particular order
+
+1. Data transfered to app quickly. 
+2. Data is effectively sorted to the user's requirements
+3. Data is consistently up to date. 
+
++-----------------------DATA FLOW-----------------------+
+This section outlines how data will generally move between the existing job databases 
+to the Jobbie application on the iPhone. 
+
+---Retrieving data from job boards-----
+1. A central server fetches data from various job boards at a regular interval (yet to be determined)
+2. The server processes data into its own database (most likely in SQLite)
+
+
+---Upon new data request--- (request flow outlined in application design spec)
+1. Thread receives request and passes information off to another process
+handle full data parsing
+2. Message from application contains specifics about job information requested - thread parses
+information from database and returns a SQLite message to the application
+3. If user is requesting new data, it is checked against the data currently referenced by the user profile
+4. Data is sent to application
+5. Application parses information out of SQLite message and displays to user
+
+
+---Upon user login---
+1. Listener thread receives account request and passes off to another process. 
+2. New process handles the retrieval of saved user data, preferences, and job nodes
+3. Process sends information to the application in the form of a SQLite message
+4. Application parses data and alters settings based on user profile
+
+---Upon Match List request---
+1. Listener process receives request and passes off to different program
+2. Program will be some type of open source that can send emails.
+
+
+
++-----------------------NOTES-------------------------+
+- Individual design specs for app and server to be present in this folder

@@ -1,0 +1,88 @@
++---------------------------------------------------+
+	  JOBBIE - APPLICATION IMPLEMENTATION SPEC
++---------------------------------------------------+
+
+Copyright Jobbie 2014
+Contributors: Daniel Whitcomb
+Last Updated: Dec 11, 2013
+
+
+This document describes the model portion of the application
+and how it interacts with the application view and user interaction.
+
++----------------General Description-----------------+
+The model will consist of sx primary parts:
+JobNode
+OpportunityList
+MatchList
+X_List
+UserProfile
+UserSettings
+
+These data structures will contain the job data, and user
+data necessary to run the app. These structures will be populated 
+with data received from the server. 
+
+The User data structures will be populated first from a 
+successful login or change in user preferences, and then 
+then list structures will be populated afterwards.
+
+List structures are updated as the user matches or x-es
+jobs from the centerView. 
+	- If a match occurs:
+		1. The job is added to MatchList
+		2. The job is removed from opportunity list
+	- If a X occurs
+		1. The job is added to X_List
+		2. The job is removed from opportunity list
+
++-----------------Data Structures-----------------+
+JobNode:
+This object holds the pieces of information that make
+up an individual job posting/opportunity. It will hold information
+such as name, location, description, type, etc. 
+
+List Structures: 
+The list structures are required to hold JobNodes. 
+The structures will be implemented as singley linked lists
+with sentinel and tail
+
+--OpportunityList--
+This will be the largest holder of information. All initial JobNodes
+will be put into this list. As matches or x-es occur, 
+items will be removed from the opportunityList and placed in 
+either the MatchList or xList. 
+When a job gets matched or x, the next node in the list will be
+displayed. 
+
+--MatchList--
+The Matchlist holds JobNodes that have been "matched" by the user.
+This list is most often just added to. Things are rarely removed unless 
+the list is cleared by the user
+
+--X_List--
+This list is used to keep track of what JobNodes have been x-ed.
+The data from this list doesn't go anywhere, but it is used to 
+cross reference any new data coming in from the server, to make sure 
+jobs that have already been x-ed don't get put back into the opportunity list.
+
+User Structures:
+The user structures are meant to hold specfic user data. This data
+is synced with the server so the user can sign-in to their account
+from any phone.
+
+Intentionally written vaguely because decisions concerning this aspect 
+of the project have not been made.
+Unsure if this is necessary because it may be possible to just pull 
+and edit an xml or .plist file
+
+--UserProfile--
+This structure will hold the user provided data about what types of 
+jobs they may be interested in. It will have parts for type, location,
+experience level, etc. 
+Questions and settings are not yet decided on.
+
+--UserSettings--
+This structure is meant to hold user specific settings that do not
+invlove the job search process. Anything included in the "settings"
+tab will probably be saved here.

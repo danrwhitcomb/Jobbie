@@ -7,6 +7,8 @@
 //
 
 #import "MatchTableViewController.h"
+#import "Model.h"
+#import "ProfileCellView.h"
 
 @implementation MatchTableViewController
 
@@ -18,8 +20,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSMutableArray* arr = [Model sharedModel].currentProfile.matchList;
-    return [arr count];
+    //NSMutableArray* arr = [Model sharedModel].currentProfile.matchList;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -13,7 +13,7 @@
 @interface Model : NSObject <NSXMLParserDelegate>
 
 -(NSURL*)buildURL;
-+(id)sharedModel;
++(Model*)sharedModel;
 
 @property NSMutableArray* opportunityList;
 @property NSMutableArray* matchList;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="uGc-X1-PHZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="uGc-X1-PHZ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Main View Controller - MainViewController-->
@@ -490,7 +490,6 @@
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="310" height="500"/>
                     <connections>
                         <outlet property="infoButton" destination="LMX-IS-TQk" id="gXD-L6-BSj"/>
                         <outlet property="lblJobCompany" destination="4Pq-Pb-k8Z" id="5Aj-lh-ojM"/>
@@ -603,7 +602,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QNO-mc-QIV">
-                                <rect key="frame" x="9" y="452.99999821000756" width="76" height="24"/>
+                                <rect key="frame" x="9" y="452.99999903406552" width="76" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -631,7 +630,6 @@
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="310" height="500"/>
                     <connections>
                         <outlet property="infoButton" destination="ye4-at-bkR" id="K2l-ac-xd1"/>
                         <outlet property="lblJobCompany" destination="edC-KI-jMd" id="QAy-j9-KFv"/>
@@ -767,7 +765,6 @@
         <!--Job Highlight View Controller - Job Title-->
         <scene sceneID="7jb-h9-Krt">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HXx-ks-51S" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="QpK-EC-BT0" customClass="JobHighlightViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9oh-f9-ndj">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
@@ -789,6 +786,7 @@
                         </connections>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HXx-ks-51S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2172" y="1303"/>
         </scene>

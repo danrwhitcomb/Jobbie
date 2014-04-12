@@ -16,6 +16,11 @@
 @property NSString* company;
 @property NSString* radius;
 
+@property NSMutableArray* opportunityList;
+@property NSMutableArray* matchList;
+@property NSMutableArray* xList;
+@property NSMutableArray* jobList;
+
 -(NSString*) buildURL;
 
 @end

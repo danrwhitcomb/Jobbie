@@ -46,7 +46,6 @@
 @property (nonatomic, strong) CardTwoViewController *cardTwoController;
 @property (nonatomic, strong) UIView*  navBarView;
 @property (nonatomic, strong) UINavigationController* navController;
-@property (nonatomic, strong) SettingsViewController* settingsController;
 @property NSInteger currentCard;
 @property NSMutableArray* cardControllers;
 

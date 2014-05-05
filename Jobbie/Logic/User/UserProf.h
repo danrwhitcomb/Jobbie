@@ -11,9 +11,9 @@ Created by Daniel Whitcomb 2014-03-17
 
 @interface UserProf : NSObject
 
-@property NSString type;
-@property NSMutableArray locations; //SimplyHired doesn't support multi-location search. Will need to make multiple requests for each location
-@property NSString radius;
-@property NSString organization;
+@property NSString* type;
+@property NSMutableArray* locations; //SimplyHired doesn't support multi-location search. Will need to make multiple requests for each location
+@property NSString* radius;
+@property NSString* organization;
 
 @end

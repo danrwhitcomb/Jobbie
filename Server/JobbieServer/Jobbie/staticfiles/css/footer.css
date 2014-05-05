@@ -1,0 +1,15 @@
+/*
+CSS styles for page footer
+Created April 12, 2014
+*/
+
+.footer_main {
+	width: 100%;
+	height: 100px;
+	background-color: black;
+}
+
+.footer_content {
+	width: auto;
+
+}

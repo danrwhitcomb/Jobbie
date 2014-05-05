@@ -1,11 +1,11 @@
 from django.conf.urls import patterns, include, url
-from web import urls
-from api import urls
+from django.conf.urls.static import static
+from django.conf import settings
+from web.Views.homeViews import index
+from django.views.generic import RedirectView
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'Jobbie.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
     url(r'^api/', include('api.urls')),
-    url(r'^.*', include('web.urls'))
-)
+    url(r'^$', index),
+    url(r'^web/', include('web.urls')),
+) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -15,13 +15,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSDictionary *textTitleOptions = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil];
-    [[UINavigationBar appearance] setTitleTextAttributes:textTitleOptions];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    UIViewController *LoginViewController = [storyboard instantiateInitialViewController];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    UIViewController* loginController = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
-    self.window.rootViewController = loginController;
+    self.window.rootViewController = LoginViewController;
     [self.window makeKeyAndVisible];
+    
+    NSDictionary *textTitleOptions = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    [[UINavigationBar appearance] setTitleTextAttributes:textTitleOptions];
     
     return YES;
 }

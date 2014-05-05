@@ -15,15 +15,9 @@
 @interface LoginViewController : UIViewController <UITextFieldDelegate>
 
 //Interface Elements
-@property IBOutlet UIScrollView* scrollView;
 @property IBOutlet UITextField* userNameField;
 @property IBOutlet UITextField* passwordField;
-@property IBOutlet UIButton* loginBtn;
-@property IBOutlet UILabel* loginErrorLbl;
-
-//Model Objects
-@property ControllerMethods* controllerMethods;
-
-@property AppDelegate* appDelegate;
+@property IBOutlet UIButton* btnLogin;
+@property IBOutlet UIButton* btnFBLogin;
 
 @end

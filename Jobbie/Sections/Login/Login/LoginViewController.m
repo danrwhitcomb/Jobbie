@@ -30,8 +30,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        _controllerMethods = [[ControllerMethods alloc] init];
-        self.appDelegate = [[UIApplication sharedApplication] delegate];
+
     }
     return self;
 }
@@ -39,29 +38,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    if ([self.restorationIdentifier  isEqual: @"LoginViewController"]){
-        
-        //Rounded Button rects
-        CALayer *btnLayer = [_loginBtn layer];
-        [btnLayer setMasksToBounds:YES];
-        [btnLayer setCornerRadius:5.0f];
-    
-        //Make scroll view bigger so it can be scrolled up when the
-        //text fields are selected
-        //[_scrollView setContentOffset:CGPointZero];
-        NSLog(@"Content Offset: %f, %f", _scrollView.contentOffset.x,  _scrollView.contentOffset.y);
-
-    
-        //Set the VC as delegate so it can implement UITextField methods
-        [_userNameField setDelegate:self];
-        [_passwordField setDelegate:self];
-        
-    } else if([self.restorationIdentifier isEqual:@"NewAccountViewController"]){
-        
-    } else { //ForgotPasswordViewController
-        
-    }
     
     //Setup tap responder to remove the keyboard to get out of
     //the textField editor
@@ -82,7 +58,6 @@
 {
     //Scroll the view up so the text fields can be seen
     //with the keyboard
-    [_scrollView setContentOffset:CGPointMake(0, 60)  animated:YES];
     return YES;
 }
 
@@ -112,31 +87,18 @@
 
 -(void)removeFocusFromTextField
 {
-    NSLog(@"Content Offset: %f, %f", _scrollView.contentOffset.x,  _scrollView.contentOffset.y);
-    [_scrollView setContentOffset:CGPointZero animated:YES];
     [_userNameField resignFirstResponder];
     [_passwordField resignFirstResponder];
-    NSLog(@"Content Offset: %f, %f", _scrollView.contentOffset.x,  _scrollView.contentOffset.y);
-
 }
 
 
 //Actions
 -(void)loginToApp
 {
-    //Wipe error
-    _loginErrorLbl.text = @"";
     
     //Get text field values
     NSString* username = _userNameField.text;
     NSString* passwowrd = _passwordField.text;
-    
-    //Match login credentials with database
-    if (![self matchLoginCredentialsWithUsername:username andPassword:passwowrd]){
-        [self displayLoginError];
-    } else {
-        [_controllerMethods pushViewControllerWithIdentifier:@"MainViewController" fromController:self animated:YES];
-    }
 }
 
 /*
@@ -168,30 +130,12 @@
 -(void)displayLoginError
 {
     [self removeFocusFromTextField];
-    _loginErrorLbl.text = @"Your email/password combination does not match out records";
 }
 
 //IBActions
 -(IBAction)loginBtnPress:(id)sender
 {
     [self loginToApp];
-}
-
-/*
- This is ugly and needs to be streamlined. Will have to do for now.
- */
--(IBAction)loginBtnFromCreateAccount:(id)sender
-{
-    UINavigationController* navController = self.navigationController;
-    UIViewController* newView = [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-    
-    [self dismissViewControllerAnimated:NO completion:nil];
-    [navController pushViewController:newView animated:YES];
-}
-
--(IBAction)newAccountBtnPress:(id)sender
-{
-    [_controllerMethods pushViewControllerWithIdentifier:@"NewAccountViewController" fromController:self animated:YES];
 }
 
 

@@ -14,11 +14,11 @@ Jobbie (C)
 
 -(UserProf*) init
 {
-
+    return nil;
 }
 
 -(UserProf*) initWithLocation:(NSString*) initWithLocation{
-
+    return nil;
 }
 
 @end

@@ -1,26 +1,117 @@
 <html>
 	<head>
-		{% load staticfiles %}
+        {% load staticfiles %}
 		{% include "links.html" %}
 		<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/carousel_style.css'%}"
+ 		<script src="{% static 'js/waypoint.min.js'%}"> </script>
+		<script src="{% static 'js/jCarousel.js'%}"></script>
+		<script src="{% static 'js/home.js'%}"></script>
+		<meta name="viewport" content="initial-scale=1">
 
+		<title>Jobbie - Home</title>
 	</head>
 	<body>
-		{% include "nav.html" %}
+		<div class="page_content">
+			{% include "nav.html" %}
 		<div class="content">
-			<div class="content_row">
-			COOL STUFF HERE
+			<div class="content_row main_content">
+				<div class="main_text">
+					<p id="main_text_top"> Tired of wasting time on lousy job boards? </p>
+					<p id="main_text_bottom"> With Jobbie you'll get tailored job listings delivered straight to your iPhone
+				</div>
+				<div class="main_image">
+					<img src="{% static 'images/main_screenshot_ios.png'%}" alt="Jobbie Screenshot" class="main_screenshot">
+				</div>
 			</div>
-			<div class="content_row">
-				COOL STUFF HERE
+			<div class="content_row about_content">
+				<div class="content_header"><b>What is Jobbie?</b></div>
+				
+				<div class="about_descript">
+					Jobbie is a personalized job search experience. We pull from over 20,000 job listings to find the right jobs for you. You could spend hours searching through job boards, and may only end up with one or two jobs you're interested in. Jobbie removes the repetition and frustration from your job search. Jobbie makes it manageable and fun.
+				</div>
+
+				<div class="about_item">
+					<img src="{% static 'images/user_icon.png'%}" alt="" class="about_image">
+					<div class="about_text">Just enter some quick information, and you'll be seeing job listings that are chosen just for you</div>
+				</div>
+				<div class="about_item">
+					<img src="{% static 'images/heart_icon.png'%}" alt="" class="about_image">
+					<div class="about_text">Match the jobs you want to keep for later, and reject the ones you don't want to see again. Jobbie will keep track of both</div>
+				</div>
+				<div class="about_item">
+					<img src="{% static 'images/grad_hat_icon.png'%}" alt="" class="about_image">
+					<div class="about_text">As you sort through jobs, Jobbie learns your likes and dislikes. Using this it can personalize your results even further</div>
+				</div>
 			</div>
-			<div class="content_row">
-				COOL STUFF HERE
+			<div class="carousel_wrapper content_row">
+				<div class="jcarousel_control">
+					<a href="#" class="jcarousel-control-prev">
+						<img src="{% static 'images/carousel_arrow_left.png'%}" alt="Previous" class="carousel_arrow">
+					</a>
+				</div>		
+				<div class="jcarousel">
+				    <ul>
+				        <li> <img src="{% static 'images/carousel_screenshot.jpg'%}" alt=""></li>
+				        <li> <img src="{% static 'images/carousel_screenshot.jpg'%}" alt=""></li>
+				        <li> <img src="{% static 'images/carousel_screenshot.jpg'%}" alt=""></li>
+				        <li> <img src="{% static 'images/carousel_screenshot.jpg'%}" alt=""></li>
+				        <li> <img src="{% static 'images/carousel_screenshot.jpg'%}" alt=""></li>
+				        <li> <img src="{% static 'images/carousel_screenshot.jpg'%}" alt=""></li>
+				        <li> <img src="{% static 'images/carousel_screenshot.jpg'%}" alt=""></li>
+				    </ul>
+				</div>
+				<div class="jcarousel_control">
+					<a href="#" class="jcarousel-control-next ">
+						<img src="{% static 'images/carousel_arrow_right.png'%}" alt="Previous" class="carousel_arrow">
+					</a>
+				</div>    
+            </div>
+
+			<div class="team_content content_row">
+				<div class="content_header"><b>Meet the Jobbie Team</b></div>	
+				<div class="team_member">
+					<div class="team_photo">
+						<img src="{% static 'images/sebastian_head.png'%}" alt="Sebastian Deluca">
+					</div>
+					<div class="team_descript">
+						<p class="team_member_name">Sebastian DeLuca</p>
+						<p class="team_position">Chief Business and Marketing Strategist</p>
+						<p class="team_bio">
+						Born and raised in the San Francisco Bay Area, Sebastian started his tech industry obsession as an intern at social marketing software startup Wildfire Interactive (before it was acquired by Google) and later joined Google as an Associate Product Marketing Manager Intern on the Google Partners team. He is also the Founder of PromoteU, a SaaS platform for managing campus ambassador programs. He’s an avid fan of any type of alt/indie rock, so hit him up if you’re trying to see a concert in SF sometime.</p>
+					</div>
+				</div>
+				<div class="team_member">
+					<div class="team_photo">
+						<img src="{% static 'images/amanda_head.png'%}" alt="Amanda Dillon">
+					</div>
+					<div class="team_descript">
+						<p class="team_member_name">Amanda Dillon</p>
+						<p class="team_position">Chief Design Officer</p>
+						<p class="team_bio">
+						Hailing from Los Altos, California,  Amanda graduated with high honors from Amherst College in 2014, where she majored in French and Economics. At Amherst, Amanda was a coxswain on the men's varsity crew team and held internships in market research and was a BOLD intern at Google. Amanda developed a keen interest in computer science late in her college career, and is self-taught to be fluent in front-end development. She enjoys web development, whisky, spending too much money on whisky, vegan pastries, and blogging at her creative outlet, Ex Vitae.</p>
+
+					</div>
+				</div>
+				<div class="team_member">
+					<div class="team_photo">
+						<img src="{% static 'images/dan_head.jpg'%}" alt="Dan Whitcomb">
+					</div>
+					<div class="team_descript">
+						<p class="team_member_name">Dan Whitcomb</p>
+						<p class="team_position">Chief Technical Officer</p>
+						<p class="team_bio">
+							Dan is a Chicago-land native, who is now a computer science major at Dartmouth College. His passion for making things had lead him to pursue full-stack development. He has experience ranging from small consumer centered applications to large enterprise web applications. His role at Jobbie is to handle all things technical. 
+							While not coding for Jobbie or class, he spends his time competing for the Dartmouth men's swim team, and watching an absurd amount of Star Trek and Game of Thrones.
+						</p>
+					</div>
+				</div>
 			</div>
-			<div class="content_row">
+			<div class="download_content content_row">
 				COOL STUFF HERE
 			</div>
 		</div>
 		{% include "footer.html" %}
+		</div>
 	</body>
 </html>

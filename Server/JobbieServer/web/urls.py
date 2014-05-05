@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from web.Views import homeViews
 
 urlpatterns = patterns('',
@@ -7,3 +8,4 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', homeViews.index, name='index')
 )
+

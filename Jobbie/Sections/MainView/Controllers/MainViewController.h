@@ -13,14 +13,12 @@
 #import <AFNetworking/AFNetworking.h>
 #import "CardOneViewController.h"
 #import "CardTwoViewController.h"
-#import "NavBarViewController.h"
 #import "Messenger.h"
 #import "AppDelegate.h"
 #import "UIActivityIndicatorView+AFNetworking.h"
-#import "SettingsViewController.h"
 
 
-@interface MainViewController : UIViewController <UIGestureRecognizerDelegate, CardOneViewControllerDelegate, CardTwoViewControllerDelegate, NavBarViewControllerDelegate>
+@interface MainViewController : UIViewController <UIGestureRecognizerDelegate, CardOneViewControllerDelegate, CardTwoViewControllerDelegate>
 
 -(void)animateShuffledCard;
 

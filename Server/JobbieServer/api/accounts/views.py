@@ -130,11 +130,11 @@ def delete_user(request):
 
 
 def authenticate(request):
-    method = check_method(request)
+    method = check_method(request, "POST")
     if method is not None:
         return method
 
-    result = validate_data(request, ["email_address", "password"])
+    result = validate_data(request, ["email_address", "password", "client_key"])
     if result is not None:
         return result
 
@@ -146,9 +146,9 @@ def authenticate(request):
 
     if user is not None:
         output = Output(httpSuccess)
-        output.addContent("profile", user.search_profile)
-        output.addContent("token", user.token)
-        output.addContent("name", user.name)
+        output.addContent("first_name", str(user.first_name))
+        output.addContent("last_name", str(user.last_name))
+        output.addContent("email_address", str(user.email))
         request.session['user'] = user.username
         return HttpResponse(str(output), content_type='application/json')
     else:
@@ -219,7 +219,7 @@ def new_search_profile(request):
 def update_search_profile(request):
     result = request_checks(request, ["profile", "client_key"], "POST")
     if result is not None:
-        return HttpResponse(str(result), content_type='application/json')
+        return HttpResponse(json.dumps(result), content_type='application/json')
 
     try:
         user = request.session['user']

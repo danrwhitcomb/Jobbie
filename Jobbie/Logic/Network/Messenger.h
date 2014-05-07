@@ -22,4 +22,6 @@
 -(void)dealloc;
 - (AFHTTPRequestOperation*)makeGETRequestWithString:(NSString*) url parameters: (NSDictionary*) param success: (void (^)(AFHTTPRequestOperation* request, id response)) success failure: (void(^)(AFHTTPRequestOperation* request, NSError* error)) failure;
 
+- (AFHTTPRequestOperation*)makePOSTRequestWithString:(NSString*) url parameters: (NSDictionary*) param success:(void ( ^ ) ( AFHTTPRequestOperation *operation , id responseObject ))success failure:(void ( ^ ) ( AFHTTPRequestOperation *operation , NSError *error ))failure;
+
 @end

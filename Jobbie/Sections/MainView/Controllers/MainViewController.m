@@ -7,7 +7,6 @@
 //
 
 //Import Frameworks
-#import <MBProgressHUD/MBProgressHUD.h>
 
 //Import My files
 #import "MainViewController.h"
@@ -60,9 +59,6 @@
 
 //Animation Flags
 @property BOOL showingNewCard;
-
-//HUD
-@property MBProgressHUD* HUD;
 
 //Buttons
 @property IBOutlet UIButton* btnSettings;
@@ -362,12 +358,6 @@
         return;
     }
     
-    self.HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    self.HUD.labelText = @"Loading...";
-    [self.view addSubview:self.HUD];
-    [self.HUD show:YES];
-
-    
     [messenger makeGETRequestWithString:url parameters:nil success:^(AFHTTPRequestOperation *request, id response) {
         if(![model loadJSONContent: response]){
             [self showAlertWithTitle:@"No results" andMessage:@"No results returned"];
@@ -376,7 +366,6 @@
         [self showCards];
         [self loadJobFromIndex:0 toCard: [self.cardControllers objectAtIndex:self.currentCard]];
         [self loadJobFromIndex:1 toCard: [self getHiddenCard]];
-        [self.HUD hide:YES];
         
     } failure:^(AFHTTPRequestOperation *request, NSError *error) {
         [self showAlertWithTitle:@"Network Error" andMessage:@"Could not connect to server"];

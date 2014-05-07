@@ -46,14 +46,14 @@
     [self.manager setResponseSerializer: [AFXMLParserResponseSerializer serializer]];
 }
 
-- (void)dealloc {
-    // Should never be called, but just here for clarity really.
-}
-
 - (AFHTTPRequestOperation*)makeGETRequestWithString:(NSString*) url parameters: (NSDictionary*) param success: (void (^)(AFHTTPRequestOperation* request, id response)) success failure: (void(^)(AFHTTPRequestOperation* request, NSError* error)) failure
 {
-    
     return [self.manager GET:url parameters:param success:success failure:failure];
+}
+
+- (AFHTTPRequestOperation*)makePOSTRequestWithString:(NSString*) url parameters: (NSDictionary*) param success:(void ( ^ ) ( AFHTTPRequestOperation *operation , id responseObject ))success failure:(void ( ^ ) ( AFHTTPRequestOperation *operation , NSError *error ))failure
+{
+    return [self.manager POST:url parameters:param success:success failure:failure];
 }
 
 @end

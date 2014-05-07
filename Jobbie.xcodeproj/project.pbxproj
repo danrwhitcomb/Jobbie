@@ -55,7 +55,6 @@
 		3986DD90191736490055B314 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3986DD36191736490055B314 /* Model.m */; };
 		3986DD91191736490055B314 /* Messenger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3986DD39191736490055B314 /* Messenger.m */; };
 		3986DD92191736490055B314 /* SearchProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3986DD3C191736490055B314 /* SearchProfile.m */; };
-		3986DD93191736490055B314 /* UserProf.m in Sources */ = {isa = PBXBuildFile; fileRef = 3986DD3E191736490055B314 /* UserProf.m */; };
 		3986DD94191736490055B314 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3986DD40191736490055B314 /* InfoPlist.strings */; };
 		3986DD95191736490055B314 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3986DD45191736490055B314 /* LoginViewController.m */; };
 		3986DD96191736490055B314 /* CardOneMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3986DD4B191736490055B314 /* CardOneMainViewController.m */; };
@@ -74,6 +73,10 @@
 		39904C4118DE794200CE9C59 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39904C4018DE794200CE9C59 /* SystemConfiguration.framework */; };
 		399FF7391917491F00FCB4F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 399FF7381917491F00FCB4F5 /* AppDelegate.m */; };
 		399FF73E191749F400FCB4F5 /* Jobbie-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 399FF73D191749F400FCB4F5 /* Jobbie-Info.plist */; };
+		399FF74219189A1D00FCB4F5 /* JobbieCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 399FF74119189A1D00FCB4F5 /* JobbieCommon.m */; };
+		399FF74519189B9200FCB4F5 /* JobbieContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 399FF74419189B9200FCB4F5 /* JobbieContext.m */; };
+		399FF74819189D2A00FCB4F5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 399FF74719189D2A00FCB4F5 /* User.m */; };
+		399FF74B1919E06C00FCB4F5 /* JobbieAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 399FF74A1919E06C00FCB4F5 /* JobbieAlert.m */; };
 		39C42BD1183804BF000DFA1A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C42BD0183804BF000DFA1A /* Foundation.framework */; };
 		39C42BD3183804BF000DFA1A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C42BD2183804BF000DFA1A /* CoreGraphics.framework */; };
 		39C42BD5183804BF000DFA1A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C42BD4183804BF000DFA1A /* UIKit.framework */; };
@@ -156,8 +159,6 @@
 		3986DD39191736490055B314 /* Messenger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Messenger.m; sourceTree = "<group>"; };
 		3986DD3B191736490055B314 /* SearchProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchProfile.h; sourceTree = "<group>"; };
 		3986DD3C191736490055B314 /* SearchProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchProfile.m; sourceTree = "<group>"; };
-		3986DD3D191736490055B314 /* UserProf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProf.h; sourceTree = "<group>"; };
-		3986DD3E191736490055B314 /* UserProf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProf.m; sourceTree = "<group>"; };
 		3986DD41191736490055B314 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3986DD44191736490055B314 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3986DD45191736490055B314 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -189,6 +190,14 @@
 		399FF7371917491F00FCB4F5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		399FF7381917491F00FCB4F5 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		399FF73D191749F400FCB4F5 /* Jobbie-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Jobbie-Info.plist"; sourceTree = "<group>"; };
+		399FF74019189A1D00FCB4F5 /* JobbieCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobbieCommon.h; sourceTree = "<group>"; };
+		399FF74119189A1D00FCB4F5 /* JobbieCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobbieCommon.m; sourceTree = "<group>"; };
+		399FF74319189B9200FCB4F5 /* JobbieContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobbieContext.h; sourceTree = "<group>"; };
+		399FF74419189B9200FCB4F5 /* JobbieContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobbieContext.m; sourceTree = "<group>"; };
+		399FF74619189D2A00FCB4F5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		399FF74719189D2A00FCB4F5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		399FF7491919E06C00FCB4F5 /* JobbieAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobbieAlert.h; sourceTree = "<group>"; };
+		399FF74A1919E06C00FCB4F5 /* JobbieAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobbieAlert.m; sourceTree = "<group>"; };
 		39C1174D19174101006C876D /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		39C117501917426E006C876D /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		39C42BCD183804BF000DFA1A /* Jobbie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jobbie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +242,7 @@
 		3986DCF11917363C0055B314 /* Jobbie */ = {
 			isa = PBXGroup;
 			children = (
+				399FF73F19189A0900FCB4F5 /* Common */,
 				3986DCF2191736490055B314 /* Assets */,
 				3986DD19191736490055B314 /* Base.lproj */,
 				3986DD1C191736490055B314 /* Classes */,
@@ -364,6 +374,8 @@
 				3986DD2F191736490055B314 /* Data */,
 				3986DD37191736490055B314 /* Network */,
 				3986DD3A191736490055B314 /* User */,
+				399FF74319189B9200FCB4F5 /* JobbieContext.h */,
+				399FF74419189B9200FCB4F5 /* JobbieContext.m */,
 			);
 			name = Logic;
 			path = Jobbie/Logic;
@@ -404,8 +416,8 @@
 			children = (
 				3986DD3B191736490055B314 /* SearchProfile.h */,
 				3986DD3C191736490055B314 /* SearchProfile.m */,
-				3986DD3D191736490055B314 /* UserProf.h */,
-				3986DD3E191736490055B314 /* UserProf.m */,
+				399FF74619189D2A00FCB4F5 /* User.h */,
+				399FF74719189D2A00FCB4F5 /* User.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -512,6 +524,18 @@
 				3986DD60191736490055B314 /* ProfilesTableController.m */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		399FF73F19189A0900FCB4F5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				399FF74019189A1D00FCB4F5 /* JobbieCommon.h */,
+				399FF74119189A1D00FCB4F5 /* JobbieCommon.m */,
+				399FF7491919E06C00FCB4F5 /* JobbieAlert.h */,
+				399FF74A1919E06C00FCB4F5 /* JobbieAlert.m */,
+			);
+			name = Common;
+			path = Jobbie/Common;
 			sourceTree = "<group>";
 		};
 		39C42BC4183804BF000DFA1A = {
@@ -759,6 +783,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				399FF74819189D2A00FCB4F5 /* User.m in Sources */,
 				399FF7391917491F00FCB4F5 /* AppDelegate.m in Sources */,
 				3986DD96191736490055B314 /* CardOneMainViewController.m in Sources */,
 				3986DD9A191736490055B314 /* CardWebViewController.m in Sources */,
@@ -769,17 +794,19 @@
 				3986DD9F191736490055B314 /* ProfilesTableController.m in Sources */,
 				3986DD99191736490055B314 /* CardTwoViewController.m in Sources */,
 				3986DD9B191736490055B314 /* MainViewController.m in Sources */,
+				399FF74519189B9200FCB4F5 /* JobbieContext.m in Sources */,
 				3986DD89191736490055B314 /* ProfileCellView.m in Sources */,
 				3986DD9C191736490055B314 /* MatchTableViewController.m in Sources */,
 				3986DD90191736490055B314 /* Model.m in Sources */,
 				3986DD8A191736490055B314 /* ProfileTableView.m in Sources */,
 				3986DD8F191736490055B314 /* JobLocation.m in Sources */,
-				3986DD93191736490055B314 /* UserProf.m in Sources */,
 				3986DD97191736490055B314 /* CardOneViewController.m in Sources */,
 				3986DD87191736490055B314 /* ControllerMethods.m in Sources */,
 				3986DD92191736490055B314 /* SearchProfile.m in Sources */,
 				3986DD88191736490055B314 /* JobCell.m in Sources */,
+				399FF74B1919E06C00FCB4F5 /* JobbieAlert.m in Sources */,
 				3986DD98191736490055B314 /* CardTwoMainViewController.m in Sources */,
+				399FF74219189A1D00FCB4F5 /* JobbieCommon.m in Sources */,
 				3986DD8E191736490055B314 /* JobNode.m in Sources */,
 				3986DD9E191736490055B314 /* ProfileSelectorViewController.m in Sources */,
 			);

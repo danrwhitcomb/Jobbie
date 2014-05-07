@@ -21,14 +21,14 @@ kStrBadAuth         = "Invalid credentials"
 kStrUserNotFound    = "The user cannot be found"
 
 class Output:
-    status = {}
+    status = None
     error = {}
     content = {}
     isError = False
     isContent = False
 
-    contentTemplate = Template("{'status':'$status', 'content':'$content'}")
-    errorTemplate = Template("{'status':'$status', 'content':'$error'}")
+    contentTemplate = Template('{"status":"$status", "content":$content}')
+    errorTemplate = Template('{"status":"$status", "content":$error}')
 
     def __init__(self, m_status, m_error=None):
         if m_error is not None:
@@ -50,9 +50,7 @@ class Output:
         val[sub_key] = value
 
     def __str__(self):
-        if self.isContent:
-            string = self.contentTemplate.substitute(status=self.status, content=self.content)
-        else:
-            string = self.errorTemplate.substitute(status=self.status, error=self.error)
-
-        return json.dumps(string)
+        dictionary = {}
+        dictionary['content'] = self.content
+        dictionary['status'] = self.status
+        return json.dumps(dictionary, ensure_ascii=False)

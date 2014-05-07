@@ -7,17 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ControllerMethods.h"
-#import "Messenger.h"
-#import "Model.h"
-#import "AppDelegate.h"
+
 
 @interface LoginViewController : UIViewController <UITextFieldDelegate>
 
 //Interface Elements
-@property IBOutlet UITextField* userNameField;
-@property IBOutlet UITextField* passwordField;
-@property IBOutlet UIButton* btnLogin;
-@property IBOutlet UIButton* btnFBLogin;
+
+
 
 @end

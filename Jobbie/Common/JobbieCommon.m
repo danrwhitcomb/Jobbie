@@ -11,7 +11,7 @@
 @implementation JobbieCommon
 
 #pragma mark Server API
-NSString* const clientKey = @"3CJS?#pl1FhX*Yq:)(2qy*3M78@8Y7";
+NSString* const clientKey = @"PDqE6dMfXKnNhfN47FhN";
 NSString* const baseUrl = @"http://localhost:5000";
 
 NSString* const kStrServerError = @"Servor Error";
@@ -37,6 +37,10 @@ static NSDictionary* dic = nil;
 //API Calls
 NSString* const apiAuthenticate = @"/api/accounts/authenticate";
 
+#pragma mark Parameter Keys
+NSString* const kStrParameterEmail = @"email_address";
+NSString* const kStrParameterPassword = @"password";
+NSString* const kStrParameterClientKey = @"client_key";
 
 #pragma mark Account Strings
 NSString* const kStrLoginAuthError = @"Authentication Error";

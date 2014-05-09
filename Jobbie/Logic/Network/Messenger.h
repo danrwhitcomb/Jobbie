@@ -24,4 +24,6 @@
 
 - (AFHTTPRequestOperation*)makePOSTRequestWithString:(NSString*) url parameters: (NSDictionary*) param success:(void ( ^ ) ( AFHTTPRequestOperation *operation , id responseObject ))success failure:(void ( ^ ) ( AFHTTPRequestOperation *operation , NSError *error ))failure;
 
+- (AFHTTPRequestOperation*)makePOSTRequestWithString:(NSString *)url constructingDict:(NSDictionary*) formData success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure;
+
 @end

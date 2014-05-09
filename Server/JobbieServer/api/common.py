@@ -1,6 +1,7 @@
 __author__ = 'danrwhitcomb'
 from string import Template
 import json
+import sys
 
 #HttpResponseCodes
 httpSuccess         = 0
@@ -21,26 +22,12 @@ kStrBadAuth         = "Invalid credentials"
 kStrUserNotFound    = "The user cannot be found"
 
 class Output:
-    status = None
-    error = {}
-    content = {}
-    isError = False
-    isContent = False
-
-    contentTemplate = Template('{"status":"$status", "content":$content}')
-    errorTemplate = Template('{"status":"$status", "content":$error}')
-
     def __init__(self, m_status, m_error=None):
-        if m_error is not None:
+        print("Creating Output")
+        sys.stdout.flush()
 
-            self.status = str(m_status)
-            self.error = m_error
-            self.isError = True
-        else:
-            self.status = str(m_status)
-            self.content = {}
-            self.isContent = True
-
+        self.status = str(m_status)
+        self.content = {}
 
     def addContent(self, key, value):
         self.content[key] = value
@@ -50,7 +37,5 @@ class Output:
         val[sub_key] = value
 
     def __str__(self):
-        dictionary = {}
-        dictionary['content'] = self.content
-        dictionary['status'] = self.status
-        return json.dumps(dictionary, ensure_ascii=False)
+        dictionary = {'content': self.content, 'status': self.status}
+        return json.dumps(dictionary)

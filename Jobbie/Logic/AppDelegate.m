@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "AFNetworkActivityLogger.h"
 
 @implementation AppDelegate
 
@@ -15,7 +15,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
+    [[AFNetworkActivityLogger sharedLogger] startLogging];
+    [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelDebug];
+
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
     UIViewController *LoginViewController = [storyboard instantiateInitialViewController];
     

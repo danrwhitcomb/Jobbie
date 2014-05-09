@@ -10,6 +10,7 @@ import random
 import string
 from django.contrib.auth.hashers import *
 from api.common import *
+import sys
 
 # Create your views here.
 
@@ -130,20 +131,22 @@ def delete_user(request):
 
 
 def authenticate(request):
-    method = check_method(request, "POST")
+    method = request_checks(request, ['email_address', 'password', 'client_key'], "POST")
     if method is not None:
-        return method
+        return HttpResponse(str(method), content_type="application/json")
 
-    result = validate_data(request, ["email_address", "password", "client_key"])
-    if result is not None:
-        return result
-
+    print("Checking for user")
+    sys.stdout.flush()
     if 'user' in request.COOKIES:
         output = Output(httpBadAuth, "This user is already logged in")
         return HttpResponse(str(output), content_type='application/json')
 
-    user = auth.authenticate(username=request.POST['email_address'], password=request.POST['password'])
+    print("Authenticating....")
 
+    user = auth.authenticate(username=request.REQUEST['email_address'], password=request.REQUEST['password'])
+
+    print("Got User...")
+    sys.stdout.flush()
     if user is not None:
         output = Output(httpSuccess)
         output.addContent("first_name", str(user.first_name))
@@ -308,11 +311,15 @@ def request_checks(request, args, method):
 
     check_result = validate_data(request, args)
     if check_result is not None:
+        print("Failed data validation")
+        sys.stdout.flush()
         return check_result
 
 
-    if request.POST['client_key'] != api_client_key:
-        output = Output(httpBadClientKey, kStrBadClientKey)
+    if request.REQUEST['client_key'] != api_client_key:
+        print("Failed client_key")
+        sys.stdout.flush()
+        output = Output(httpBadClientKey)
         return output
 
 
@@ -320,20 +327,21 @@ def request_checks(request, args, method):
 
 
 def validate_data(request, strings):
+    print("Validating Data..")
+    print(strings)
+    print(request.REQUEST.items())
+    print(request)
+    sys.stdout.flush()
     for ind in strings:
-        try:
-            val = request.POST[ind]
-
-        except KeyError:
-            output = Output(httpBadArguments, kStrArguments)
-            return output
+        if not ind in request.REQUEST:
+            return Output(httpBadArguments)
 
     return None
 
 
 def check_method(request, method):
     if request.method != method:
-        output = Output(httpBadMethod, kStrBadMethod)
+        output = Output(httpBadMethod)
         return output
     else:
         return None

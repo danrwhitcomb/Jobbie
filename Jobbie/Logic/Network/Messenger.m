@@ -32,6 +32,7 @@
     if (self = [super init]) {
         self.manager = [AFHTTPRequestOperationManager manager];
         [self setJSONResponseSerializer];
+        [self.manager setRequestSerializer:[AFHTTPRequestSerializer serializer]];
     }
     return self;
 }
@@ -46,6 +47,7 @@
     [self.manager setResponseSerializer: [AFXMLParserResponseSerializer serializer]];
 }
 
+
 - (AFHTTPRequestOperation*)makeGETRequestWithString:(NSString*) url parameters: (NSDictionary*) param success: (void (^)(AFHTTPRequestOperation* request, id response)) success failure: (void(^)(AFHTTPRequestOperation* request, NSError* error)) failure
 {
     return [self.manager GET:url parameters:param success:success failure:failure];
@@ -54,6 +56,23 @@
 - (AFHTTPRequestOperation*)makePOSTRequestWithString:(NSString*) url parameters: (NSDictionary*) param success:(void ( ^ ) ( AFHTTPRequestOperation *operation , id responseObject ))success failure:(void ( ^ ) ( AFHTTPRequestOperation *operation , NSError *error ))failure
 {
     return [self.manager POST:url parameters:param success:success failure:failure];
+}
+
+- (AFHTTPRequestOperation*)makePOSTRequestWithString:(NSString *)url constructingDict:(NSDictionary*) formData success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure
+{
+    NSMutableURLRequest* request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:url parameters:nil error:nil];
+    
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSMutableData * data = [NSMutableData data];
+    [data appendData:[NSJSONSerialization dataWithJSONObject:formData options:0 error:nil]];
+    [request setHTTPBody:data];
+    
+    AFHTTPRequestOperation* operation = [self.manager HTTPRequestOperationWithRequest:request success:success failure:failure];
+    
+    [operation start];
+    
+    return operation;
 }
 
 @end

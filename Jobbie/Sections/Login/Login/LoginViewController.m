@@ -21,6 +21,7 @@
 #import "JobbieCommon.h"
 #import "JobbieContext.h"
 #import "JobbieAlert.h"
+#import "JBTextField.h"
 #import "User.h"
 
 //Pods
@@ -41,8 +42,8 @@
 @property NSString* currentUser;
 @property NSString* currentPassword;
 
-@property IBOutlet UITextField* userNameField;
-@property IBOutlet UITextField* passwordField;
+@property IBOutlet JBTextField* userNameField;
+@property IBOutlet JBTextField* passwordField;
 @property IBOutlet UIButton* btnLogin;
 @property IBOutlet UIButton* btnFBLogin;
 
@@ -71,14 +72,6 @@
     UITapGestureRecognizer *outsideTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeFocusFromTextField)];
     
     [self.view addGestureRecognizer:outsideTap];
-    
-    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
-    self.userNameField.leftView = paddingView;
-    self.userNameField.leftViewMode = UITextFieldViewModeAlways;
-    
-    paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
-    self.passwordField.leftView = paddingView;
-    self.passwordField.leftViewMode = UITextFieldViewModeAlways;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -166,22 +159,24 @@
     else
     {
         [JobbieAlert show:kStrCommonAlertError message:kStrLoginAuthError];
-        
     }
-    
 }
 
+
+-(IBAction)onBtnSignup:(id)sender
+{
+    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SignUpViewController"] animated:YES];
+}
 
 #pragma mark Server Handlers
 //Actions
 -(void)doAuth
 {
     [SVProgressHUD showWithStatus:kStrLoginAuthProgress maskType:SVProgressHUDMaskTypeGradient];
-    NSDictionary* dict = @{@"username" : self.currentUser,
-                           @"password" : self.currentPassword,
-                           @"client_key": clientKey};
+    NSDictionary* dict = @{kStrParameterEmail : self.currentUser,
+                           kStrParameterPassword : self.currentPassword,
+                           kStrParameterClientKey : clientKey};
     NSString* url = [baseUrl stringByAppendingString:apiAuthenticate];
-    NSLog(@"%@", url);
     
     [[Messenger sharedMessenger] makePOSTRequestWithString:url parameters:dict success:^(AFHTTPRequestOperation *request, id response) {
         if([self isValidResponse: response]){
@@ -190,7 +185,6 @@
             [user setPassword:self.currentPassword];
             [[JobbieContext context] setCurrentUser: user];
             NSLog(@"Successfully Authenticated");
-            
         }
         else {
             [JobbieAlert show:kStrCommonOops message:kStrLoginAuthError];
@@ -213,9 +207,9 @@
     }
     
     NSDictionary* responseDict = (NSDictionary*)response;
-    NSNumber* status = [NSNumber numberWithInt:(int)[responseDict objectForKey:@"status"]];
+    NSNumber* status = [NSNumber numberWithInt:[[responseDict objectForKey:@"status"] intValue]];
     
-    if(![status isEqualToNumber:0]){
+    if([status intValue] != 0){
         return NO;
     }
     

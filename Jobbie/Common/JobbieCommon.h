@@ -22,10 +22,18 @@ extern NSString* const kStrServerError;
 extern NSString* const apiAuthenticate;
 
 
+//Parameters keys
+extern NSString* const kStrParameterEmail;
+extern NSString* const kStrParameterPassword;
+extern NSString* const kStrParameterClientKey;
+
 
 //Login Strings
 extern NSString* const kStrLoginAuthError;
 extern NSString* const kStrLoginAuthProgress;
+
+
+
 
 
 

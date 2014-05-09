@@ -77,6 +77,9 @@
 		399FF74519189B9200FCB4F5 /* JobbieContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 399FF74419189B9200FCB4F5 /* JobbieContext.m */; };
 		399FF74819189D2A00FCB4F5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 399FF74719189D2A00FCB4F5 /* User.m */; };
 		399FF74B1919E06C00FCB4F5 /* JobbieAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 399FF74A1919E06C00FCB4F5 /* JobbieAlert.m */; };
+		399FF74E191C80B400FCB4F5 /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 399FF74D191C80B400FCB4F5 /* AFNetworkActivityLogger.m */; };
+		399FF751191C950800FCB4F5 /* JBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 399FF750191C950800FCB4F5 /* JBTextField.m */; };
+		399FF754191C991C00FCB4F5 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 399FF753191C991C00FCB4F5 /* SignUpViewController.m */; };
 		39C42BD1183804BF000DFA1A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C42BD0183804BF000DFA1A /* Foundation.framework */; };
 		39C42BD3183804BF000DFA1A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C42BD2183804BF000DFA1A /* CoreGraphics.framework */; };
 		39C42BD5183804BF000DFA1A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C42BD4183804BF000DFA1A /* UIKit.framework */; };
@@ -198,6 +201,12 @@
 		399FF74719189D2A00FCB4F5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		399FF7491919E06C00FCB4F5 /* JobbieAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobbieAlert.h; sourceTree = "<group>"; };
 		399FF74A1919E06C00FCB4F5 /* JobbieAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobbieAlert.m; sourceTree = "<group>"; };
+		399FF74C191C80B400FCB4F5 /* AFNetworkActivityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityLogger.h; sourceTree = "<group>"; };
+		399FF74D191C80B400FCB4F5 /* AFNetworkActivityLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityLogger.m; sourceTree = "<group>"; };
+		399FF74F191C950800FCB4F5 /* JBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBTextField.h; sourceTree = "<group>"; };
+		399FF750191C950800FCB4F5 /* JBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBTextField.m; sourceTree = "<group>"; };
+		399FF752191C991C00FCB4F5 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		399FF753191C991C00FCB4F5 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		39C1174D19174101006C876D /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		39C117501917426E006C876D /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		39C42BCD183804BF000DFA1A /* Jobbie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jobbie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -464,6 +473,8 @@
 		3986DD47191736490055B314 /* NewUser */ = {
 			isa = PBXGroup;
 			children = (
+				399FF752191C991C00FCB4F5 /* SignUpViewController.h */,
+				399FF753191C991C00FCB4F5 /* SignUpViewController.m */,
 			);
 			path = NewUser;
 			sourceTree = "<group>";
@@ -529,10 +540,14 @@
 		399FF73F19189A0900FCB4F5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				399FF74C191C80B400FCB4F5 /* AFNetworkActivityLogger.h */,
+				399FF74D191C80B400FCB4F5 /* AFNetworkActivityLogger.m */,
 				399FF74019189A1D00FCB4F5 /* JobbieCommon.h */,
 				399FF74119189A1D00FCB4F5 /* JobbieCommon.m */,
 				399FF7491919E06C00FCB4F5 /* JobbieAlert.h */,
 				399FF74A1919E06C00FCB4F5 /* JobbieAlert.m */,
+				399FF74F191C950800FCB4F5 /* JBTextField.h */,
+				399FF750191C950800FCB4F5 /* JBTextField.m */,
 			);
 			name = Common;
 			path = Jobbie/Common;
@@ -792,6 +807,7 @@
 				3986DD9D191736490055B314 /* AddProfileViewController.m in Sources */,
 				3986DD95191736490055B314 /* LoginViewController.m in Sources */,
 				3986DD9F191736490055B314 /* ProfilesTableController.m in Sources */,
+				399FF751191C950800FCB4F5 /* JBTextField.m in Sources */,
 				3986DD99191736490055B314 /* CardTwoViewController.m in Sources */,
 				3986DD9B191736490055B314 /* MainViewController.m in Sources */,
 				399FF74519189B9200FCB4F5 /* JobbieContext.m in Sources */,
@@ -801,10 +817,12 @@
 				3986DD8A191736490055B314 /* ProfileTableView.m in Sources */,
 				3986DD8F191736490055B314 /* JobLocation.m in Sources */,
 				3986DD97191736490055B314 /* CardOneViewController.m in Sources */,
+				399FF754191C991C00FCB4F5 /* SignUpViewController.m in Sources */,
 				3986DD87191736490055B314 /* ControllerMethods.m in Sources */,
 				3986DD92191736490055B314 /* SearchProfile.m in Sources */,
 				3986DD88191736490055B314 /* JobCell.m in Sources */,
 				399FF74B1919E06C00FCB4F5 /* JobbieAlert.m in Sources */,
+				399FF74E191C80B400FCB4F5 /* AFNetworkActivityLogger.m in Sources */,
 				3986DD98191736490055B314 /* CardTwoMainViewController.m in Sources */,
 				399FF74219189A1D00FCB4F5 /* JobbieCommon.m in Sources */,
 				3986DD8E191736490055B314 /* JobNode.m in Sources */,
